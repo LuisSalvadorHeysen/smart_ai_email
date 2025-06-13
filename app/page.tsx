@@ -1,14 +1,12 @@
-import ThemeToggle from "./components/ThemeToggle";
+import AppShell from "./components/AppShell";
 import AuthButton from "./components/AuthButton";
 import EmailList from "./components/EmailList";
 
 export default function Home() {
   return (
-    <main>
-      <ThemeToggle />
-      <h1 style={{ marginBottom: 24 }}>Smart AI Email</h1>
+    <AppShell>
       <AuthButton />
       <EmailList />
-    </main>
+    </AppShell>
   );
 }
