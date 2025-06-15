@@ -26,19 +26,19 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                 ? { draft, tone, text: emailBody }
                 : { text: emailBody };
 
-            const res = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
+                const res = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
 
-            if (!res.ok) {
-                const errorData = await res.json();
-                throw new Error(errorData.error || 'AI request failed');
-            }
+                if (!res.ok) {
+                    const errorData = await res.json();
+                    throw new Error(errorData.error || 'AI request failed');
+                }
 
-            const data = await res.json();
-            setOutput(Array.isArray(data.output) ? data.output : []);
+                const data = await res.json();
+                setOutput(Array.isArray(data.output) ? data.output : []);
         } catch (err: any) {
             setError(err.message || "Failed to process request");
             setOutput([]);
@@ -77,7 +77,6 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
             setCopiedIndex(index);
             setTimeout(() => setCopiedIndex(null), 2000);
         } catch (err) {
-            // Fallback for older browsers
             const textArea = document.createElement('textarea');
             textArea.value = text;
             document.body.appendChild(textArea);
@@ -90,54 +89,112 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
     };
 
     return (
-        <Paper mt="md" p="md" withBorder>
-            <Tabs value={activeTab} onChange={setActiveTab}>
+        <Paper 
+            mt="md" 
+            p="xl" 
+            withBorder
+            radius="lg"
+            style={{
+                background: '#f8fafc',
+                border: '1px solid #f1f3f5',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
+            }}
+        >
+            <Tabs 
+                value={activeTab} 
+                onChange={setActiveTab}
+                styles={{
+                    tab: {
+                        '&[dataActive]': { // camelCase for React
+                            borderColor: '#1a73e8',
+                            color: '#1a73e8'
+                }
+                }
+                }}
+            >
                 <Tabs.List>
-                    <Tabs.Tab value="tone" icon={<IconBulb size={14} />}>Tone</Tabs.Tab>
-                    <Tabs.Tab value="actions" icon={<IconListCheck size={14} />}>Actions</Tabs.Tab>
+                    <Tabs.Tab value="tone" icon={<IconBulb size={18} />}>Tone</Tabs.Tab>
+                    <Tabs.Tab value="actions" icon={<IconListCheck size={18} />}>Actions</Tabs.Tab>
                 </Tabs.List>
 
-                <Tabs.Panel value="tone" pt="md">
+                <Tabs.Panel value="tone" pt="xl">
                     <Textarea
                         value={draft}
                         onChange={(e) => setDraft(e.currentTarget.value)}
-                        placeholder="Type your draft here..."
+                        placeholder="Compose your reply..."
                         minRows={8}
                         autosize
                         maxRows={12}
-                        style={{ fontSize: '14px' }}
+                        styles={{
+                            input: {
+                                border: '1px solid #e8eaed',
+                                borderRadius: 12,
+                                padding: 20,
+                                fontSize: 15,
+                                lineHeight: 1.6,
+                                '&:focus': {
+                                    borderColor: '#1a73e8',
+                                    boxShadow: '0 0 0 2px rgba(26, 115, 232, 0.1)'
+                        }
+                        }
+                        }}
                     />
-                    <Group mt="sm" spacing="xs">
+                    <Group mt="xl" spacing="xs">
                         {['formal', 'friendly', 'concise', 'assertive'].map((tone) => (
                             <Button
                                 key={tone}
                                 variant="outline"
-                                size="xs"
+                                size="sm"
                                 onClick={() => handleAIRequest('rewrite', tone)}
                                 loading={loading}
+                                styles={{
+                                    root: {
+                                        borderRadius: 8,
+                                        borderWidth: 1.5,
+                                        textTransform: 'capitalize',
+                                        fontWeight: 500,
+                                        letterSpacing: 0.2
+                                }
+                                }}
                             >
-                                Make {tone}
+                                {tone}
                             </Button>
                         ))}
                     </Group>
                 </Tabs.Panel>
-                
-                <Tabs.Panel value="actions" pt="md">
-                    <Stack spacing="md">
+
+                <Tabs.Panel value="actions" pt="xl">
+                    <Stack spacing="xl">
                         <Button 
                             onClick={() => handleAIRequest('actions')} 
                             loading={loading}
                             variant="light"
                             fullWidth
+                            styles={{
+                                root: {
+                                    borderRadius: 8,
+                                    borderWidth: 1.5,
+                                    fontWeight: 500
+                            }
+                            }}
                         >
                             Extract Action Items
                         </Button>
-                        
+
                         <Button 
                             onClick={handleGenerateReplies}
                             loading={repliesLoading}
                             variant="filled"
                             fullWidth
+                            styles={{
+                                root: {
+                                    borderRadius: 8,
+                                    backgroundColor: '#1a73e8',
+                                    '&:hover': {
+                                        backgroundColor: '#1557b0'
+                            }
+                            }
+                            }}
                         >
                             Generate 3 AI Replies
                         </Button>
@@ -152,7 +209,9 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                                         withBorder 
                                         style={{ 
                                             background: copiedIndex === index ? '#e6ffe6' : '#f8f9fa',
-                                            transition: 'background-color 0.3s ease'
+                                            transition: 'background-color 0.3s ease',
+                                            borderRadius: 8,
+                                            borderColor: '#e8eaed'
                                         }}
                                     >
                                         <Group position="apart" align="flex-start" spacing="xs">
@@ -169,6 +228,12 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                                                 }
                                                 color={copiedIndex === index ? 'green' : 'gray'}
                                                 onClick={() => handleCopy(reply, index)}
+                                                styles={{
+                                                    root: {
+                                                        borderRadius: 6,
+                                                        padding: '4px 8px'
+                                                }
+                                                }}
                                             >
                                                 {copiedIndex === index ? 'Copied!' : 'Copy'}
                                             </Button>
@@ -181,10 +246,13 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                 </Tabs.Panel>
             </Tabs>
 
-            {error && <Text color="red" mt="md">{error}</Text>}
+            {error && <Text color="red" mt="md" size="sm">{error}</Text>}
 
             {output.length > 0 && (
-                <Paper mt="md" p="md" withBorder>
+                <Paper mt="xl" p="xl" withBorder radius="lg" style={{ 
+                    background: '#fff',
+                    borderColor: '#e8eaed'
+                    }}>
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm, remarkBreaks]}
                         rehypePlugins={[rehypeRaw]}
@@ -194,20 +262,21 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                                     marginLeft: 20, 
                                     marginBottom: 12,
                                     paddingLeft: 16 
-                                }} {...props} />
+                                    }} {...props} />
                             ),
                             li: ({ node, ...props }) => (
                                 <li style={{ 
                                     marginBottom: 4,
-                                    listStyleType: 'disc' 
-                                }} {...props} />
+                                    listStyleType: 'disc',
+                                    lineHeight: 1.6
+                                    }} {...props} />
                             ),
                             p: ({ node, ...props }) => (
                                 <p style={{ 
                                     marginBottom: 8,
                                     whiteSpace: 'pre-wrap',
                                     lineHeight: 1.6 
-                                }} {...props} />
+                                    }} {...props} />
                             ),
                             a: ({ node, ...props }) => (
                                 <a 

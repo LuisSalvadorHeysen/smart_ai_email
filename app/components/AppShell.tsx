@@ -1,41 +1,43 @@
 'use client';
-
 import { Container, Paper, Title, Group, Box } from '@mantine/core';
+
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <Box
       style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #e0e7ff 0%, #f5f7fa 100%)',
-        transition: 'background 0.3s',
+        background: '#f8fafc',
+        fontFamily: '"Google Sans", system-ui'
       }}
-      sx={(theme) => ({
-        background: theme.colorScheme === 'dark'
-          ? 'linear-gradient(135deg, #232946 0%, #121629 100%)'
-          : 'linear-gradient(135deg, #e0e7ff 0%, #f5f7fa 100%)',
-      })}
     >
-      <Container size="sm" pt="lg">
+      <Container size="xl" pt="xl">
         <Paper
           radius="lg"
-          p="xl"
-          shadow="xl"
+          p="md"
+          shadow="sm"
           withBorder
           style={{
-            background: 'rgba(255,255,255,0.85)',
-            backdropFilter: 'blur(3px)',
-            marginBottom: 32,
+            background: 'rgba(255,255,255,0.95)',
+            backdropFilter: 'blur(4px)',
+            marginBottom: 24,
+            borderColor: '#e8eaed'
           }}
         >
-          <Group position="apart" align="center" mb="md">
-            <Title order={2} style={{ letterSpacing: 1.5, fontWeight: 800 }}>
-              📧 Smart AI Email
+          <Group position="apart" align="center" mb={0}>
+            <Title 
+              order={2} 
+              style={{ 
+                fontWeight: 800,
+                letterSpacing: -0.5,
+                color: '#1a1a1a'
+              }}
+            >
+              <span style={{ color: '#1a73e8' }}>Smart</span> Email
             </Title>
           </Group>
-          {children}
         </Paper>
+        {children}
       </Container>
     </Box>
   );
 }
-
