@@ -26,7 +26,7 @@ export async function POST(req: NextRequest, { params }: { params: { feature: st
             { status: 400 }
           );
         }
-        prompt = `Rewrite this email draft to be more ${tone}:\n\n${draft}`;
+        prompt = `I received the following email: ${text}. I wrote the following draft reply:\n\n${draft}.\nPlease rewrite it in ${tone} tone. Give me just one answer, and dont say anything else, just give me the reply`;
         break;
       }
       case 'actions': {
@@ -67,3 +67,5 @@ export async function POST(req: NextRequest, { params }: { params: { feature: st
     );
   }
 }
+
+

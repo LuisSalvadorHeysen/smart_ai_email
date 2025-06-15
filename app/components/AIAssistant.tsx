@@ -4,6 +4,8 @@ import { Tabs, Textarea, Button, Group, Paper, Text, Loader } from '@mantine/cor
 import { IconBulb, IconListCheck } from '@tabler/icons-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
+import rehypeRaw from 'rehype-raw';
 
 export default function AIAssistant({ emailBody }: { emailBody: string }) {
     const [activeTab, setActiveTab] = useState('tone');
@@ -17,10 +19,9 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
         setError(null);
         try {
             const endpoint = `/api/ai/${action}`;
-            const body =
-                action === 'rewrite'
-                    ? { draft, tone }
-                    : { text: emailBody };
+            const body = action === 'rewrite' 
+                ? { draft, tone, text: emailBody }
+                : { text: emailBody };
 
             const res = await fetch(endpoint, {
                 method: 'POST',
@@ -31,9 +32,10 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
             if (!res.ok) throw new Error('AI request failed');
 
             const data = await res.json();
-            setOutput(Array.isArray(data.output) ? data.output : [data.output]);
+            setOutput(Array.isArray(data.output) ? data.output : []);
         } catch (err) {
             setError("Failed to process request");
+            setOutput([]); // Clear previous output on error
         } finally {
             setLoading(false);
         }
@@ -68,6 +70,7 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                         ))}
                     </Group>
                 </Tabs.Panel>
+                
                 <Tabs.Panel value="actions" pt="md">
                     <Button 
                         onClick={() => handleAIRequest('actions')} 
@@ -84,29 +87,47 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
             {output.length > 0 && (
                 <Paper mt="md" p="md" withBorder>
                     <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
+                        remarkPlugins={[remarkGfm, remarkBreaks]}
+                        rehypePlugins={[rehypeRaw]}
                         components={{
-                            ul: ({node, ...props}) => <ul style={{ marginLeft: 20, marginBottom: 12 }} {...props} />,
-                            ol: ({node, ...props}) => <ol style={{ marginLeft: 20, marginBottom: 12 }} {...props} />,
-                            li: ({node, ...props}) => <li style={{ marginBottom: 4 }} {...props} />,
-                            p: ({node, ...props}) => <p style={{ marginBottom: 8 }} {...props} />,
-                            strong: ({node, ...props}) => <strong style={{ color: '#222' }} {...props} />,
-                            em: ({node, ...props}) => <em style={{ color: '#555' }} {...props} />,
-                            code: ({node, ...props}) => (
-                                <code style={{
-                                    background: '#f4f4f4',
-                                    borderRadius: 4,
-                                    padding: '2px 6px',
-                                    fontSize: '0.95em'
+                            ul: ({ node, ...props }) => (
+                                <ul style={{ 
+                                    marginLeft: 20, 
+                                    marginBottom: 12,
+                                    paddingLeft: 16 
                                 }} {...props} />
                             ),
+                            li: ({ node, ...props }) => (
+                                <li style={{ 
+                                    marginBottom: 4,
+                                    listStyleType: 'disc' 
+                                }} {...props} />
+                            ),
+                            p: ({ node, ...props }) => (
+                                <p style={{ 
+                                    marginBottom: 8,
+                                    whiteSpace: 'pre-wrap',
+                                    lineHeight: 1.6 
+                                }} {...props} />
+                            ),
+                            a: ({ node, ...props }) => (
+                                <a 
+                                    style={{ 
+                                        color: '#1a73e8',
+                                        textDecoration: 'none',
+                                        fontWeight: 500 
+                                    }} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    {...props} 
+                                />
+                            )
                         }}
                     >
-                        {output.join('\n')}
+                        {output.join('\n\n')}
                     </ReactMarkdown>
                 </Paper>
             )}
         </Paper>
     );
 }
-
