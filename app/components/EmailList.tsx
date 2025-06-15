@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Card, Button, Group, Avatar, Text, ScrollArea, Badge, Box, Modal, Loader, Paper, Divider } from '@mantine/core';
+import { Card, Group, Avatar, Text, ScrollArea, Badge, Box, Modal, Loader, Paper, Divider, Button } from '@mantine/core';
 import ReplySuggestions from "./ReplySuggestions";
 
 type Email = {
@@ -11,7 +11,10 @@ type Email = {
   date: string;
 };
 
-type EmailDetail = Email & { body: string };
+type EmailDetail = Email & { 
+  htmlBody?: string;
+  textBody?: string;
+};
 
 export default function EmailList() {
   const [emails, setEmails] = useState<Email[]>([]);
@@ -33,7 +36,7 @@ export default function EmailList() {
   }, []);
 
   const handleEmailClick = async (id: string) => {
-    setSummary(null); // Reset summary when opening new email
+    setSummary(null);
     setLoadingEmail(true);
     setOpened(true);
     const res = await fetch(`/api/gmail?id=${id}`);
@@ -43,20 +46,28 @@ export default function EmailList() {
   };
 
   const handleSummarize = async () => {
-    if (!selectedEmail?.body) return;
-    
+    if (!selectedEmail) return;
+
     setSummaryLoading(true);
     setSummaryError(null);
     try {
+      // Prefer textBody, fallback to sanitized HTML
+      const content = selectedEmail.textBody || 
+        selectedEmail.htmlBody?.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() || 
+        '';
+
       const res = await fetch("/api/summarize-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ body: selectedEmail.body }),
+        body: JSON.stringify({ body: content }),
       });
-      const data = await res.json();
-      setSummary(data.summary);
-    } catch (e) {
-      setSummaryError("Failed to generate summary.");
+
+      if (!res.ok) throw new Error('Summary failed');
+      
+      const { summary } = await res.json();
+      setSummary(summary);
+    } catch (err) {
+      setSummaryError("Failed to generate summary");
     } finally {
       setSummaryLoading(false);
     }
@@ -100,7 +111,7 @@ export default function EmailList() {
               </div>
             </Group>
 
-            {/* Summarize Section */}
+            {/* Summary Section */}
             <Group position="apart" mb="md">
               <Button
                 variant="light"
@@ -129,6 +140,7 @@ export default function EmailList() {
 
             <Divider my="md" />
 
+            {/* Email Body Display */}
             <Box
               sx={{
                 background: "#fff",
@@ -152,35 +164,30 @@ export default function EmailList() {
                 dangerouslySetInnerHTML={{ 
                   __html: `
                   <style>
-                  .email-content {
-                    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-                    font-size: 14px;
-                    line-height: 1.4;
-                    color: #202124;
-                    max-width: 100%;
-                    word-wrap: break-word;
-                  }
-                  .email-content img {
-                    max-width: 100%;
-                    height: auto;
-                    display: block;
-                    margin: 12px auto;
-                  }
-                  .email-content table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    margin: 12px 0;
-                  }
-                  .email-content a {
-                    color: #1a73e8;
-                    text-decoration: none;
-                  }
-                  .email-content a:hover {
-                    text-decoration: underline;
-                  }
+                    .email-content {
+                      font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+                      font-size: 14px;
+                      line-height: 1.4;
+                      color: #202124;
+                      max-width: 100%;
+                      word-wrap: break-word;
+                    }
+                    .email-content img {
+                      max-width: 100%;
+                      height: auto;
+                      display: block;
+                      margin: 12px auto;
+                    }
+                    .email-content a {
+                      color: #1a73e8;
+                      text-decoration: none;
+                    }
+                    .email-content a:hover {
+                      text-decoration: underline;
+                    }
                   </style>
                   <div class="email-content">
-                  ${selectedEmail.body || "No content available"}
+                    ${selectedEmail.htmlBody || selectedEmail.textBody || "No content available"}
                   </div>
                   ` 
                 }}
@@ -189,7 +196,7 @@ export default function EmailList() {
 
             <ReplySuggestions 
               subject={selectedEmail.subject}
-              body={selectedEmail.body}
+              body={selectedEmail.textBody || selectedEmail.htmlBody || ""}
             />
           </Paper>
         ) : null}
