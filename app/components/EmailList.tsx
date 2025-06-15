@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Card, Group, Avatar, Text, ScrollArea, Badge, Box, Modal, Loader, Paper, Divider, Button } from '@mantine/core';
-import ReplySuggestions from "./ReplySuggestions";
+import { Card, Group, Avatar, Text, ScrollArea, Badge, Box, Modal, Loader, Paper, Divider, Button, Tabs } from '@mantine/core';
+import AIAssistant from "./AIAssistant";
 
 type Email = {
   id: string;
@@ -14,6 +14,7 @@ type Email = {
 type EmailDetail = Email & { 
   htmlBody?: string;
   textBody?: string;
+  sentiment?: string;
 };
 
 export default function EmailList() {
@@ -24,7 +25,6 @@ export default function EmailList() {
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
   const [summaryLoading, setSummaryLoading] = useState(false);
-  const [summaryError, setSummaryError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/gmail")
@@ -45,31 +45,13 @@ export default function EmailList() {
     setLoadingEmail(false);
   };
 
-  const handleSummarize = async () => {
-    if (!selectedEmail) return;
-
-    setSummaryLoading(true);
-    setSummaryError(null);
-    try {
-      // Prefer textBody, fallback to sanitized HTML
-      const content = selectedEmail.textBody || 
-        selectedEmail.htmlBody?.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() || 
-        '';
-
-      const res = await fetch("/api/summarize-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ body: content }),
-      });
-
-      if (!res.ok) throw new Error('Summary failed');
-      
-      const { summary } = await res.json();
-      setSummary(summary);
-    } catch (err) {
-      setSummaryError("Failed to generate summary");
-    } finally {
-      setSummaryLoading(false);
+  const getSentimentColor = (sentiment?: string) => {
+    if (!sentiment) return 'gray';
+    switch(sentiment.toLowerCase()) {
+      case 'positive': return 'green';
+      case 'urgent': return 'red';
+      case 'negative': return 'orange';
+      default: return 'blue';
     }
   };
 
@@ -94,109 +76,56 @@ export default function EmailList() {
           <Loader size="lg" />
         ) : selectedEmail ? (
           <Paper radius="md" p="xl" shadow="sm" style={{ background: "#f8fafc" }}>
-            <Group align="center" mb="sm" spacing="md">
-              <Avatar color="indigo" radius="xl" size="lg">
-                {selectedEmail.from[0]?.toUpperCase() || "?"}
-              </Avatar>
-              <div style={{ flex: 1 }}>
-                <Text size="xl" fw={800} mb={4} style={{ wordBreak: 'break-word' }}>
-                  {selectedEmail.subject || '(No Subject)'}
-                </Text>
-                <Text size="sm" c="dimmed" mb={2} style={{ wordBreak: 'break-all' }}>
-                  {selectedEmail.from}
-                </Text>
-                <Text size="xs" c="gray">
-                  {new Date(selectedEmail.date).toLocaleString()}
-                </Text>
-              </div>
-            </Group>
-
-            {/* Summary Section */}
-            <Group position="apart" mb="md">
-              <Button
-                variant="light"
-                size="xs"
-                onClick={handleSummarize}
-                loading={summaryLoading}
-                disabled={summaryLoading}
+            <Group position="apart" align="center" mb="md">
+              <Group align="center" spacing="md">
+                <Avatar color="indigo" radius="xl" size="lg">
+                  {selectedEmail.from[0]?.toUpperCase() || "?"}
+                </Avatar>
+                <div>
+                  <Text size="xl" fw={800} style={{ wordBreak: 'break-word' }}>
+                    {selectedEmail.subject || '(No Subject)'}
+                  </Text>
+                  <Text size="sm" c="dimmed">
+                    {selectedEmail.from}
+                  </Text>
+                </div>
+              </Group>
+              <Badge 
+                color={getSentimentColor(selectedEmail.sentiment)}
+                variant="filled"
+                size="lg"
               >
-                Summarize Email
-              </Button>
-              {summaryLoading && <Loader size="xs" />}
+                {selectedEmail.sentiment || 'neutral'}
+              </Badge>
             </Group>
-
-            {summaryError && (
-              <Text color="red" size="sm" mb="sm">
-                {summaryError}
-              </Text>
-            )}
-
-            {summary && (
-              <Paper p="md" mb="md" withBorder style={{ background: "#f4f8fb" }}>
-                <Text fw={500} mb={4}>AI Summary:</Text>
-                <Text size="sm" style={{ whiteSpace: 'pre-wrap' }}>{summary}</Text>
-              </Paper>
-            )}
 
             <Divider my="md" />
 
-            {/* Email Body Display */}
             <Box
               sx={{
                 background: "#fff",
                 borderRadius: 8,
-                padding: 0,
+                padding: "20px 24px",
                 minHeight: 200,
-                maxHeight: 500,
+                maxHeight: 400,
                 overflowY: "auto",
+                fontFamily: '"Google Sans",Roboto,Helvetica,Arial,sans-serif',
+                fontSize: "14px",
+                lineHeight: 1.4,
+                color: "#202124",
                 boxShadow: "0 2px 8px rgba(60,72,88,0.07)",
                 border: "1px solid #e8eaed",
               }}
-            >
-              <div 
-                style={{
-                  padding: "20px 24px",
-                  fontFamily: '"Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif',
-                  fontSize: "14px",
-                  lineHeight: "1.4",
-                  color: "#202124",
-                }}
-                dangerouslySetInnerHTML={{ 
-                  __html: `
-                  <style>
-                    .email-content {
-                      font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-                      font-size: 14px;
-                      line-height: 1.4;
-                      color: #202124;
-                      max-width: 100%;
-                      word-wrap: break-word;
-                    }
-                    .email-content img {
-                      max-width: 100%;
-                      height: auto;
-                      display: block;
-                      margin: 12px auto;
-                    }
-                    .email-content a {
-                      color: #1a73e8;
-                      text-decoration: none;
-                    }
-                    .email-content a:hover {
-                      text-decoration: underline;
-                    }
-                  </style>
-                  <div class="email-content">
-                    ${selectedEmail.htmlBody || selectedEmail.textBody || "No content available"}
-                  </div>
-                  ` 
-                }}
-              />
-            </Box>
+              dangerouslySetInnerHTML={{ 
+                __html: selectedEmail.htmlBody || selectedEmail.textBody || "No content available"
+              }}
+            />
 
-            <ReplySuggestions 
-              subject={selectedEmail.subject}
-              body={selectedEmail.textBody || selectedEmail.htmlBody || ""}
+            <Divider my="md" />
+
+            <AIAssistant 
+              emailBody={selectedEmail.textBody || selectedEmail.htmlBody || ""}
+              emailSubject={selectedEmail.subject}
             />
           </Paper>
         ) : null}

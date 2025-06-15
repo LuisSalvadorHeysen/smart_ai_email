@@ -24,3 +24,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* For better email rendering */
+.email-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.email-content table {
+  width: 100% !important;
+  border-collapse: collapse;
+}
+
+.email-content a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.email-content a:hover {
+  text-decoration: underline;
+}

@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
 import { authOptions } from "../auth/[...nextauth]/route";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 function findMimePart(parts: any[], mimeType: string): string {
   for (const part of parts) {
@@ -46,13 +47,28 @@ export async function GET(req: NextRequest) {
         textBody = Buffer.from(payload.body.data, "base64").toString("utf-8");
       }
 
+      // Analyze sentiment
+      let sentiment = "neutral";
+      try {
+        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+        const prompt = `Classify this email's sentiment as positive, neutral, urgent, or negative:\n\n${textBody || htmlBody}`;
+        const result = await model.generateContent(prompt);
+        const sentimentText = result.response.text().toLowerCase();
+        sentiment = ["positive", "neutral", "urgent", "negative"]
+          .find(s => sentimentText.includes(s)) || "neutral";
+      } catch (e) {
+        console.error("Sentiment analysis failed:", e);
+      }
+
       return NextResponse.json({
         id: msgRes.data.id,
         subject: payload.headers?.find((h) => h.name === "Subject")?.value || "",
         from: payload.headers?.find((h) => h.name === "From")?.value || "",
         date: payload.headers?.find((h) => h.name === "Date")?.value || "",
         htmlBody,
-        textBody
+        textBody,
+        sentiment
       });
     }
 
