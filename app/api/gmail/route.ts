@@ -15,45 +15,53 @@ export async function GET(req: NextRequest) {
 
     const gmail = google.gmail({ version: "v1", auth: oauth2Client });
 
-    // single email read
-
     const { searchParams } = new URL(req.url);
     const emailId = searchParams.get("id");
 
     if (emailId) {
-        // Fetch a single email by ID and return its body
         const msgRes = await gmail.users.messages.get({
             userId: "me",
             id: emailId,
             format: "full",
         });
 
-        // Extract plain text or HTML body
         const payload = msgRes.data.payload;
-        let body = "";
-        if (payload.parts) {
-            // Find the plain text or HTML part
-            const part = payload.parts.find(
-                (p) => p.mimeType === "text/html" || p.mimeType === "text/plain"
-            );
-            if (part?.body?.data) {
-                body = Buffer.from(part.body.data, "base64").toString("utf-8");
+
+        // Recursively find the HTML or plain text part
+        function findPart(parts: any[], mimeType: string): string | null {
+            if (!parts) return null;
+            for (const part of parts) {
+                if (part.mimeType === mimeType && part.body?.data) {
+                    return Buffer.from(part.body.data, "base64").toString("utf-8");
+                }
+                if (part.parts) {
+                    const found = findPart(part.parts, mimeType);
+                    if (found) return found;
+                }
             }
-        } else if (payload.body?.data) {
+            return null;
+        }
+
+        let body = findPart(payload.parts, "text/html");
+        if (!body) {
+            body = findPart(payload.parts, "text/plain");
+        }
+
+        // Fallback if no parts (top-level only)
+        if (!body && payload.body?.data) {
             body = Buffer.from(payload.body.data, "base64").toString("utf-8");
         }
 
         return NextResponse.json({
             id: msgRes.data.id,
             subject: payload.headers?.find((h) => h.name === "Subject")?.value || "",
-                from: payload.headers?.find((h) => h.name === "From")?.value || "",
-                date: payload.headers?.find((h) => h.name === "Date")?.value || "",
-                body,
+            from: payload.headers?.find((h) => h.name === "From")?.value || "",
+            date: payload.headers?.find((h) => h.name === "Date")?.value || "",
+            body,
         });
     }
 
-
-    // Fetch the latest 100 emails
+    // Fetch the latest 100 emails (list view)
     const messagesRes = await gmail.users.messages.list({
         userId: "me",
         maxResults: 100,
@@ -62,7 +70,6 @@ export async function GET(req: NextRequest) {
 
     const messages = messagesRes.data.messages || [];
 
-    // Fetch details for each message
     const emailPromises = messages.map(async (msg) => {
         const msgRes = await gmail.users.messages.get({
             userId: "me",
@@ -72,7 +79,7 @@ export async function GET(req: NextRequest) {
         });
         const headers = msgRes.data.payload?.headers || [];
         const getHeader = (name: string) =>
-        headers.find((h) => h.name === name)?.value || "";
+            headers.find((h) => h.name === name)?.value || "";
         return {
             id: msg.id,
             subject: getHeader("Subject"),

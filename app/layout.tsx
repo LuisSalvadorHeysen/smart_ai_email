@@ -1,17 +1,17 @@
-'use client'
+// app/layout.tsx
+'use client';
 
 import '@mantine/core/styles.css';
-import { MantineProvider, ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 import { SessionProvider } from "next-auth/react";
-import type { ReactNode } from "react";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <MantineProvider>
           <SessionProvider>
             {children}
