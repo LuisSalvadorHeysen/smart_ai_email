@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Tabs, Textarea, Button, Group, Paper, Text, Loader, Stack } from '@mantine/core';
+import { Tabs, Textarea, Button, Group, Paper, Text, Loader, Stack, Box } from '@mantine/core';
 import { IconBulb, IconListCheck, IconCopy, IconCheck } from '@tabler/icons-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -215,9 +215,19 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                                         }}
                                     >
                                         <Group position="apart" align="flex-start" spacing="xs">
-                                            <Text size="sm" style={{ flex: 1 }}>
-                                                {reply}
-                                            </Text>
+                                            <Box style={{ flex: 1 }}>
+                                                <ReactMarkdown
+                                                    remarkPlugins={[remarkGfm, remarkBreaks]}
+                                                    rehypePlugins={[rehypeRaw]}
+                                                    components={{
+                                                        strong: ({node, ...props}) => <strong style={{ color: '#222', fontWeight: 600 }} {...props} />,
+                                                        em: ({node, ...props}) => <em style={{ color: '#555' }} {...props} />,
+                                                        p: ({node, ...props}) => <p style={{ margin: 0, whiteSpace: 'pre-wrap', fontSize: '14px', lineHeight: 1.5 }} {...props} />,
+                                                    }}
+                                                >
+                                                    {reply}
+                                                </ReactMarkdown>
+                                            </Box>
                                             <Button
                                                 variant="subtle"
                                                 size="xs"

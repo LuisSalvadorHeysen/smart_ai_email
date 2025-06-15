@@ -21,7 +21,8 @@ export async function POST(req: NextRequest, { params }: { params: { feature: st
                     );
                 }
                 //prompt = `I received this email: \n\n ${text}\n\nRewrite the following draft in ${tone} tone: \n\n${draft}`;
-                prompt = `Rewrite this email draft in ${tone} tone. Maintain the original context and format.\n\nOriginal Email:\n${text}\n\nDraft Reply:\n${draft}\n\nRewritten Version:`;
+                //prompt = `Rewrite this email draft in ${tone} tone. Maintain the original context and format.\n\nOriginal Email:\n${text}\n\nDraft Reply:\n${draft}\n\nRewritten Version:`;
+                prompt = `I received the following email: ${text}. I wrote the following draft reply:\n\n${draft}.\nPlease rewrite it in ${tone} tone. Give me just one answer, and dont say anything else, just give me the reply`;
                 break;
             }
             case 'actions': {
