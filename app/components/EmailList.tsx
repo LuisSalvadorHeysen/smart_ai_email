@@ -63,8 +63,7 @@ export default function EmailList() {
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        title={null}
-        size="lg"
+        size="95%"
         centered
         overlayProps={{
           opacity: 0.55,
@@ -73,61 +72,87 @@ export default function EmailList() {
         padding={0}
       >
         {loadingEmail ? (
-          <Loader size="lg" />
+          <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '85vh' }}>
+            <Loader size="lg" />
+          </Box>
         ) : selectedEmail ? (
-          <Paper radius="md" p="xl" shadow="sm" style={{ background: "#f8fafc" }}>
-            <Group position="apart" align="center" mb="md">
-              <Group align="center" spacing="md">
-                <Avatar color="indigo" radius="xl" size="lg">
-                  {selectedEmail.from[0]?.toUpperCase() || "?"}
-                </Avatar>
-                <div>
-                  <Text size="xl" fw={800} style={{ wordBreak: 'break-word' }}>
-                    {selectedEmail.subject || '(No Subject)'}
-                  </Text>
-                  <Text size="sm" c="dimmed">
-                    {selectedEmail.from}
-                  </Text>
-                </div>
-              </Group>
-              <Badge 
-                color={getSentimentColor(selectedEmail.sentiment)}
-                variant="filled"
-                size="lg"
-              >
-                {selectedEmail.sentiment || 'neutral'}
-              </Badge>
-            </Group>
+          <div style={{ 
+            display: 'flex', 
+            height: '85vh',
+            gap: 0 
+          }}>
+            {/* Left Panel - Email Content */}
+            <div style={{ 
+              width: '50%',
+              overflowY: 'auto',
+              overflowX: 'hidden',
+              borderRight: '1px solid #e8eaed',
+              backgroundColor: '#f8fafc'
+            }}>
+              <Paper radius={0} p="xl" shadow="none" style={{ minHeight: '100%' }}>
+                <Group position="apart" align="center" mb="md">
+                  <Group align="center" spacing="md">
+                    <Avatar color="indigo" radius="xl" size="lg">
+                      {selectedEmail.from[0]?.toUpperCase() || "?"}
+                    </Avatar>
+                    <div>
+                      <Text size="xl" fw={800} style={{ wordBreak: 'break-word' }}>
+                        {selectedEmail.subject || '(No Subject)'}
+                      </Text>
+                      <Text size="sm" c="dimmed">
+                        {selectedEmail.from}
+                      </Text>
+                      <Text size="xs" c="gray">
+                        {new Date(selectedEmail.date).toLocaleString()}
+                      </Text>
+                    </div>
+                  </Group>
+                    Vibe:
+                  <Badge 
+                    color={getSentimentColor(selectedEmail.sentiment)}
+                    variant="filled"
+                    size="lg"
+                  >
+                    {selectedEmail.sentiment || 'neutral'}
+                  </Badge>
+                </Group>
 
-            <Divider my="md" />
+                <Divider my="md" />
 
-            <Box
-              sx={{
-                background: "#fff",
-                borderRadius: 8,
-                padding: "20px 24px",
-                minHeight: 200,
-                maxHeight: 400,
-                overflowY: "auto",
-                fontFamily: '"Google Sans",Roboto,Helvetica,Arial,sans-serif',
-                fontSize: "14px",
-                lineHeight: 1.4,
-                color: "#202124",
-                boxShadow: "0 2px 8px rgba(60,72,88,0.07)",
-                border: "1px solid #e8eaed",
-              }}
-              dangerouslySetInnerHTML={{ 
-                __html: selectedEmail.htmlBody || selectedEmail.textBody || "No content available"
-              }}
-            />
+                <Box
+                  sx={{
+                    background: "#fff",
+                    borderRadius: 8,
+                    padding: "20px 24px",
+                    fontFamily: '"Google Sans",Roboto,Helvetica,Arial,sans-serif',
+                    fontSize: "14px",
+                    lineHeight: 1.4,
+                    color: "#202124",
+                    boxShadow: "0 2px 8px rgba(60,72,88,0.07)",
+                    border: "1px solid #e8eaed",
+                  }}
+                  dangerouslySetInnerHTML={{ 
+                    __html: selectedEmail.htmlBody || selectedEmail.textBody || "No content available"
+                  }}
+                />
+              </Paper>
+            </div>
 
-            <Divider my="md" />
-
-            <AIAssistant 
-              emailBody={selectedEmail.textBody || selectedEmail.htmlBody || ""}
-              emailSubject={selectedEmail.subject}
-            />
-          </Paper>
+            {/* Right Panel - AI Assistant */}
+            <div style={{ 
+              width: '50%',
+              overflowY: 'auto',
+              overflowX: 'hidden',
+              backgroundColor: '#ffffff'
+            }}>
+              <div style={{ padding: '24px', minHeight: '100%' }}>
+                <AIAssistant 
+                  emailBody={selectedEmail.textBody || selectedEmail.htmlBody || ""}
+                  emailSubject={selectedEmail.subject}
+                />
+              </div>
+            </div>
+          </div>
         ) : null}
       </Modal>
 
