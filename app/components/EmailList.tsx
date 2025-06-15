@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Card, Group, Avatar, Text, ScrollArea, Badge, Box, Modal, Loader, Paper, Divider, Button, Tabs } from '@mantine/core';
+import { Card, Group, Avatar, Text, ScrollArea, Badge, Box, Modal, Loader, Paper, Divider } from '@mantine/core';
 import AIAssistant from "./AIAssistant";
 
 type Email = {
@@ -23,8 +23,6 @@ export default function EmailList() {
   const [opened, setOpened] = useState(false);
   const [selectedEmail, setSelectedEmail] = useState<EmailDetail | null>(null);
   const [loadingEmail, setLoadingEmail] = useState(false);
-  const [summary, setSummary] = useState<string | null>(null);
-  const [summaryLoading, setSummaryLoading] = useState(false);
 
   useEffect(() => {
     fetch("/api/gmail")
@@ -36,7 +34,6 @@ export default function EmailList() {
   }, []);
 
   const handleEmailClick = async (id: string) => {
-    setSummary(null);
     setLoadingEmail(true);
     setOpened(true);
     const res = await fetch(`/api/gmail?id=${id}`);
@@ -65,10 +62,7 @@ export default function EmailList() {
         onClose={() => setOpened(false)}
         size="95%"
         centered
-        overlayProps={{
-          opacity: 0.55,
-          blur: 3,
-        }}
+        overlayProps={{ opacity: 0.55, blur: 3 }}
         padding={0}
       >
         {loadingEmail ? (
@@ -79,17 +73,17 @@ export default function EmailList() {
           <div style={{ 
             display: 'flex', 
             height: '85vh',
-            gap: 0 
+            background: '#ffffff'
           }}>
             {/* Left Panel - Email Content */}
             <div style={{ 
               width: '50%',
               overflowY: 'auto',
-              overflowX: 'hidden',
               borderRight: '1px solid #e8eaed',
+              padding: '24px',
               backgroundColor: '#f8fafc'
             }}>
-              <Paper radius={0} p="xl" shadow="none" style={{ minHeight: '100%' }}>
+              <Paper radius="md" p="md" shadow="sm">
                 <Group position="apart" align="center" mb="md">
                   <Group align="center" spacing="md">
                     <Avatar color="indigo" radius="xl" size="lg">
@@ -107,7 +101,6 @@ export default function EmailList() {
                       </Text>
                     </div>
                   </Group>
-                    Vibe:
                   <Badge 
                     color={getSentimentColor(selectedEmail.sentiment)}
                     variant="filled"
@@ -121,15 +114,10 @@ export default function EmailList() {
 
                 <Box
                   sx={{
-                    background: "#fff",
-                    borderRadius: 8,
-                    padding: "20px 24px",
                     fontFamily: '"Google Sans",Roboto,Helvetica,Arial,sans-serif',
                     fontSize: "14px",
                     lineHeight: 1.4,
                     color: "#202124",
-                    boxShadow: "0 2px 8px rgba(60,72,88,0.07)",
-                    border: "1px solid #e8eaed",
                   }}
                   dangerouslySetInnerHTML={{ 
                     __html: selectedEmail.htmlBody || selectedEmail.textBody || "No content available"
@@ -142,15 +130,13 @@ export default function EmailList() {
             <div style={{ 
               width: '50%',
               overflowY: 'auto',
-              overflowX: 'hidden',
-              backgroundColor: '#ffffff'
+              padding: '24px',
+              background: '#fff'
             }}>
-              <div style={{ padding: '24px', minHeight: '100%' }}>
-                <AIAssistant 
-                  emailBody={selectedEmail.textBody || selectedEmail.htmlBody || ""}
-                  emailSubject={selectedEmail.subject}
-                />
-              </div>
+              <AIAssistant 
+                emailBody={selectedEmail.textBody || selectedEmail.htmlBody || ""}
+                emailSubject={selectedEmail.subject}
+              />
             </div>
           </div>
         ) : null}
