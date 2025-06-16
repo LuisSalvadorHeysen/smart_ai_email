@@ -55,7 +55,7 @@ export default function EmailList() {
   if (!emails.length) return <Text align="center" size="md" mt="xl">No emails found.</Text>;
 
   return (
-    <>
+    <Box style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: '#f8fafc' }}>
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
@@ -170,78 +170,81 @@ export default function EmailList() {
         ) : null}
       </Modal>
 
-      <ScrollArea h={500} type="auto" offsetScrollbars>
-        <Box>
-          {emails.map((email) => (
-            <Card
-              key={email.id}
-              shadow="sm"
-              padding="lg"
-              radius="lg"
-              withBorder
-              mb="md"
-              sx={{
-                transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-                cursor: 'pointer',
-                border: '1px solid #f1f3f5',
-                '&:hover': {
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 24px rgba(60, 72, 88, 0.08)',
-                  background: 'rgba(100, 108, 255, 0.03)',
-                },
-              }}
-              onClick={() => handleEmailClick(email.id)}
-            >
-              <Group align="flex-start" spacing="xl">
-                <Avatar 
-                  color="indigo" 
-                  radius="xl" 
-                  size="lg"
-                  style={{ 
-                    boxShadow: '0 2px 8px rgba(100, 108, 255, 0.1)',
-                    flexShrink: 0
-                  }}
-                >
-                  {email.from[0]?.toUpperCase() || "?"}
-                </Avatar>
-                <Box style={{ flex: 1, minWidth: 0 }}>
-                  <Group position="apart" align="center" mb={4}>
-                    <Text 
-                      fw={600} 
-                      size="lg" 
-                      truncate
-                      style={{
-                        fontFamily: '"Google Sans", system-ui',
-                        color: '#1a1a1a'
-                      }}
-                    >
-                      {email.subject || '(No Subject)'}
+      {/* Responsive, always-visible scrollable inbox */}
+      <Box style={{ flex: 1, minHeight: 0 }}>
+        <ScrollArea style={{ height: '100%' }} type="auto" offsetScrollbars>
+          <Box>
+            {emails.map((email) => (
+              <Card
+                key={email.id}
+                shadow="sm"
+                padding="lg"
+                radius="lg"
+                withBorder
+                mb="md"
+                sx={{
+                  transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer',
+                  border: '1px solid #f1f3f5',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 24px rgba(60, 72, 88, 0.08)',
+                    background: 'rgba(100, 108, 255, 0.03)',
+                  },
+                }}
+                onClick={() => handleEmailClick(email.id)}
+              >
+                <Group align="flex-start" spacing="xl">
+                  <Avatar 
+                    color="indigo" 
+                    radius="xl" 
+                    size="lg"
+                    style={{ 
+                      boxShadow: '0 2px 8px rgba(100, 108, 255, 0.1)',
+                      flexShrink: 0
+                    }}
+                  >
+                    {email.from[0]?.toUpperCase() || "?"}
+                  </Avatar>
+                  <Box style={{ flex: 1, minWidth: 0 }}>
+                    <Group position="apart" align="center" mb={4}>
+                      <Text 
+                        fw={600} 
+                        size="lg" 
+                        truncate
+                        style={{
+                          fontFamily: '"Google Sans", system-ui',
+                          color: '#1a1a1a'
+                        }}
+                      >
+                        {email.subject || '(No Subject)'}
+                      </Text>
+                      <Badge 
+                        color="gray" 
+                        variant="light" 
+                        size="sm"
+                        radius="sm"
+                        style={{ 
+                          fontWeight: 500,
+                          letterSpacing: 0.2 
+                        }}
+                      >
+                        {new Date(email.date).toLocaleDateString()}
+                      </Badge>
+                    </Group>
+                    <Text size="sm" c="dimmed" truncate>
+                      {email.from}
                     </Text>
-                    <Badge 
-                      color="gray" 
-                      variant="light" 
-                      size="sm"
-                      radius="sm"
-                      style={{ 
-                        fontWeight: 500,
-                        letterSpacing: 0.2 
-                      }}
-                    >
-                      {new Date(email.date).toLocaleDateString()}
-                    </Badge>
-                  </Group>
-                  <Text size="sm" c="dimmed" truncate>
-                    {email.from}
-                  </Text>
-                  <Text size="xs" c="gray" mt={2}>
-                    {new Date(email.date).toLocaleTimeString()}
-                  </Text>
-                </Box>
-              </Group>
-            </Card>
-          ))}
-        </Box>
-      </ScrollArea>
-    </>
+                    <Text size="xs" c="gray" mt={2}>
+                      {new Date(email.date).toLocaleTimeString()}
+                    </Text>
+                  </Box>
+                </Group>
+              </Card>
+            ))}
+          </Box>
+        </ScrollArea>
+      </Box>
+    </Box>
   );
 }

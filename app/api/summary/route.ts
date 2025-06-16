@@ -70,7 +70,7 @@ export async function GET(req: NextRequest) {
 //Focus on key topics, senders, and urgency. Format using markdown:\n\n${emailSnippets.join("\n\n")}`;
 
     const prompt = `
-    You are an AI email assistant. Write a short, friendly introductory paragraph summarizing the overall state of my inbox in the last 24 hours, as if you're speaking directly to me. Then, add "See the details below:" and provide a detailed bullet-point summary of the key emails, focusing on senders, topics, and urgency. Format everything using markdown.
+    You are an AI email assistant. Write a short, friendly introductory paragraph summarizing the overall state of my inbox in the last 24 hours, as if you're speaking directly to me. Then, add "See the details below:" and provide a summary of each relevant email. Format everything using markdown.
 
             Emails:
                 ${emailSnippets.join("\n\n")}
