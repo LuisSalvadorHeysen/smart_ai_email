@@ -1,0 +1,101 @@
+[
+  {
+    "id": "app_1750540461928_ooqhfnuf5",
+    "company": "ingaquispe",
+    "position": "Software Engineer Intern",
+    "status": "Applied",
+    "date": "2025-06-21",
+    "notes": "Email from Luis Salvador Heysen Taborda <lsalvador.ht@gmail.com>",
+    "emailId": "1979451cd6227b50",
+    "createdAt": "2025-06-21T21:14:21.928Z",
+    "updatedAt": "2025-06-21T21:14:21.928Z"
+  },
+  {
+    "id": "app_1750540466172_l20rq3z25",
+    "company": "SGS",
+    "position": "Engineer Intern",
+    "status": "Announcement",
+    "date": "2025-06-21",
+    "notes": "Email from SGS <notification@smartrecruiters.com>",
+    "emailId": "1979451c55b2c4bb",
+    "createdAt": "2025-06-21T21:14:26.172Z",
+    "updatedAt": "2025-06-21T21:14:26.172Z"
+  },
+  {
+    "id": "app_1750540480603_s8pqt9l5i",
+    "company": "SWE List",
+    "position": "Internship Position",
+    "status": "Announcement",
+    "date": "2025-06-21",
+    "notes": "Four new internships were posted on June 21, 2025.  No specific internship details provided.",
+    "emailId": "197941f187475b6e",
+    "createdAt": "2025-06-21T21:14:40.603Z",
+    "updatedAt": "2025-06-21T21:14:40.603Z"
+  },
+  {
+    "id": "app_1750540515369_ahhlketbs",
+    "company": "Quantra",
+    "position": "Quant Trading Internship",
+    "status": "Announcement",
+    "date": "2025-06-21",
+    "notes": "Email from Juhi Shah <juhi.s@quantinsti.com>",
+    "emailId": "19792cacf724022a",
+    "createdAt": "2025-06-21T21:15:15.369Z",
+    "updatedAt": "2025-06-21T21:15:15.369Z"
+  },
+  {
+    "id": "app_1750540568533_93ipzbxe2",
+    "company": "SWE List",
+    "position": "Multiple Internships",
+    "status": "Announcement",
+    "date": "2025-06-20",
+    "notes": "Six new internships were posted on June 20, 2025.  No specific details about the internships themselves are provided.",
+    "emailId": "1978ef8fd96722d8",
+    "createdAt": "2025-06-21T21:16:08.533Z",
+    "updatedAt": "2025-06-21T21:16:08.533Z"
+  },
+  {
+    "company": "Nakisa",
+    "position": "Software Developer Intern",
+    "status": "Announcement",
+    "date": null,
+    "notes": "More details available at https://nakisa.com/career-opportunities/?gh_jid=4590663101 and https://github.com/SimplifyJobs/Summer2025-Internships",
+    "emailId": "1979945443672040",
+    "id": "internship-1750632578110",
+    "createdAt": "2025-06-22T22:49:38.110Z",
+    "updatedAt": "2025-06-22T22:49:38.110Z"
+  },
+  {
+    "company": "Nakisa",
+    "position": "Software Developer Intern",
+    "status": "Announcement",
+    "date": null,
+    "notes": "Found via SWElist. More details available at https://nakisa.com/career-opportunities/?gh_jid=4590663101 and https://github.com/SimplifyJobs/Summer2025-Internships",
+    "emailId": "1979945443672040",
+    "id": "internship-1750633103649",
+    "createdAt": "2025-06-22T22:58:23.649Z",
+    "updatedAt": "2025-06-22T22:58:23.649Z"
+  },
+  {
+    "id": "internship-1750633456669",
+    "company": "Nakisa",
+    "position": "Software Developer Intern",
+    "status": "Announcement",
+    "date": null,
+    "notes": "Found via SWElist daily update.  More details available at https://nakisa.com/career-opportunities/?gh_jid=4590663101 and https://github.com/SimplifyJobs/Summer2025-Internships",
+    "emailId": "1979945443672040",
+    "createdAt": "2025-06-22T23:04:16.669Z",
+    "updatedAt": "2025-06-22T23:04:16.669Z"
+  },
+  {
+    "id": "internship-1750633456713",
+    "company": "Nakisa",
+    "position": "Software Developer Intern",
+    "status": "Announcement",
+    "date": null,
+    "notes": "Details available at https://nakisa.com/career-opportunities/?gh_jid=4590663101 and https://github.com/SimplifyJobs/Summer2025-Internships",
+    "emailId": "1979945443672040",
+    "createdAt": "2025-06-22T23:04:16.713Z",
+    "updatedAt": "2025-06-22T23:04:16.713Z"
+  }
+]

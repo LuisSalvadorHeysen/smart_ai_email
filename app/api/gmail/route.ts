@@ -1,8 +1,13 @@
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "../auth/authOptions";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { dbManager } from "../../../lib/database";
+
+interface SessionWithToken {
+  accessToken?: string;
+}
 
 function findMimePart(parts: any[], mimeType: string): string {
   for (const part of parts) {
@@ -19,90 +24,169 @@ function findMimePart(parts: any[], mimeType: string): string {
 
 export async function GET(req: NextRequest) {
   try {
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions) as SessionWithToken;
     if (!session?.accessToken) {
       return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
     }
 
-    const oauth2Client = new google.auth.OAuth2();
-    oauth2Client.setCredentials({ access_token: session.accessToken });
-    const gmail = google.gmail({ version: "v1", auth: oauth2Client });
-
     const { searchParams } = new URL(req.url);
-    const emailId = searchParams.get("id");
+    const emailId = searchParams.get('id');
 
+    // If specific email ID is requested, return that email
     if (emailId) {
-      const msgRes = await gmail.users.messages.get({
-        userId: "me",
+      const gmail = google.gmail({ version: 'v1', headers: { Authorization: `Bearer ${session.accessToken}` } });
+      
+      const response = await gmail.users.messages.get({
+        userId: 'me',
         id: emailId,
-        format: "full",
+        format: 'full'
       });
 
-      const payload = msgRes.data.payload;
-      let htmlBody = findMimePart(payload?.parts || [], "text/html");
-      let textBody = findMimePart(payload?.parts || [], "text/plain");
+      const message = response.data;
+      const headers = message.payload?.headers;
+      const subject = headers?.find(h => h.name === 'Subject')?.value || '';
+      const from = headers?.find(h => h.name === 'From')?.value || '';
+      const date = headers?.find(h => h.name === 'Date')?.value || '';
 
-      // Fallback for simple emails
-      if (!htmlBody && !textBody && payload?.body?.data) {
-        textBody = Buffer.from(payload.body.data, "base64").toString("utf-8");
+      let textBody = '';
+      let htmlBody = '';
+
+      const findPart = (parts: any[], mimeType: string): any | undefined => {
+        for (const part of parts) {
+          if (part.mimeType === mimeType) {
+            return part;
+          }
+          if (part.parts) {
+            const found = findPart(part.parts, mimeType);
+            if (found) return found;
+          }
+        }
+        return undefined;
+      };
+
+      if (message.payload?.parts) {
+        const textPart = findPart(message.payload.parts, 'text/plain');
+        const htmlPart = findPart(message.payload.parts, 'text/html');
+        if (textPart && textPart.body?.data) {
+          textBody = Buffer.from(textPart.body.data, 'base64').toString('utf-8');
+        }
+        if (htmlPart && htmlPart.body?.data) {
+          htmlBody = Buffer.from(htmlPart.body.data, 'base64').toString('utf-8');
+        }
+      } else if (message.payload?.body?.data) {
+        const decodedBody = Buffer.from(message.payload.body.data, 'base64').toString('utf-8');
+        if (message.payload.mimeType === 'text/html') {
+          htmlBody = decodedBody;
+        } else {
+          textBody = decodedBody;
+        }
       }
 
-      // Analyze sentiment
-      let sentiment = "neutral";
-      try {
-        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
-        const prompt = `Classify this email's sentiment as positive, neutral, urgent, or negative:\n\n${textBody || htmlBody}`;
-        const result = await model.generateContent(prompt);
-        const sentimentText = result.response.text().toLowerCase();
-        sentiment = ["positive", "neutral", "urgent", "negative"]
-          .find(s => sentimentText.includes(s)) || "neutral";
-      } catch (e) {
-        console.error("Sentiment analysis failed:", e);
+      if (htmlBody && !textBody) {
+        textBody = htmlBody.replace(/<[^>]*>/g, '');
       }
+      
+      const cachedEmail = await dbManager.getEmailWithAIResults(emailId);
+      const sentiment = cachedEmail?.aiResults?.sentiment || 'neutral';
+      const aiResults = cachedEmail?.aiResults;
 
       return NextResponse.json({
-        id: msgRes.data.id,
-        subject: payload.headers?.find((h) => h.name === "Subject")?.value || "",
-        from: payload.headers?.find((h) => h.name === "From")?.value || "",
-        date: payload.headers?.find((h) => h.name === "Date")?.value || "",
-        htmlBody,
+        id: message.id,
+        subject,
+        from,
+        date,
         textBody,
-        sentiment
+        htmlBody,
+        sentiment,
+        aiResults
       });
     }
 
-    // Existing list endpoint
-    const { data } = await gmail.users.messages.list({
-      userId: "me",
-      maxResults: 100,
-      labelIds: ["INBOX"],
+    // Fetch list of emails
+    const systemState = await dbManager.getSystemState();
+    const lastFetchTime = new Date(systemState.lastFetchTime || 0);
+    
+    const gmail = google.gmail({ version: 'v1', headers: { Authorization: `Bearer ${session.accessToken}` } });
+    
+    let query = '';
+    if (lastFetchTime.getTime() > 0) {
+      const afterDate = lastFetchTime.toISOString().split('T')[0];
+      query = `after:${afterDate}`;
+    }
+
+    const response = await gmail.users.messages.list({
+      userId: 'me',
+      maxResults: 50,
+      q: query
     });
 
-    const messages = data.messages || [];
-    const emails = await Promise.all(messages.map(async (msg) => {
-      const res = await gmail.users.messages.get({
-        userId: "me",
-        id: msg.id!,
-        format: "metadata",
-        metadataHeaders: ["Subject", "From", "Date"],
-      });
-      
-      const headers = res.data.payload?.headers || [];
-      return {
-        id: msg.id,
-        subject: headers.find((h) => h.name === "Subject")?.value || "",
-        from: headers.find((h) => h.name === "From")?.value || "",
-        date: headers.find((h) => h.name === "Date")?.value || "",
-      };
-    }));
+    const messages = response.data.messages || [];
+    const newEmails = [];
 
-    return NextResponse.json(emails);
+    const existingEmails = await dbManager.getAllEmailsWithAIResults();
+    const existingEmailIds = new Set(existingEmails.map(e => e.id));
 
-  } catch (error) {
-    console.error("[GMAIL_API_ERROR]", error);
+    // Only process emails that don't already exist in our database
+    for (const message of messages) {
+      if (!message.id || existingEmailIds.has(message.id)) {
+        continue;
+      }
+
+      try {
+        const emailResponse = await gmail.users.messages.get({
+          userId: 'me',
+          id: message.id,
+          format: 'metadata',
+          metadataHeaders: ['Subject', 'From', 'Date']
+        });
+
+        const emailData = emailResponse.data;
+        const headers = emailData.payload?.headers;
+        const subject = headers?.find(h => h.name === 'Subject')?.value || '(No Subject)';
+        const from = headers?.find(h => h.name === 'From')?.value || 'Unknown';
+        const date = headers?.find(h => h.name === 'Date')?.value || new Date().toISOString();
+        
+        const emailSnapshot = { 
+          id: message.id, 
+          subject, 
+          from, 
+          date, 
+          isInternship: false, 
+          processed: false, 
+          lastUpdated: new Date().toISOString() 
+        };
+        await dbManager.saveEmailSnapshot(emailSnapshot);
+
+        newEmails.push(emailSnapshot);
+      } catch (error) {
+        console.error(`Error processing email ${message.id}:`, error);
+      }
+    }
+
+    await dbManager.updateLastFetchTime();
+
+    // Return all emails from database, sorted by date (newest first)
+    const allEmails = await dbManager.getAllEmailsWithAIResults();
+    allEmails.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    return NextResponse.json({ 
+      emails: allEmails, 
+      newEmailsCount: newEmails.length, 
+      totalEmailsCount: allEmails.length 
+    });
+
+  } catch (error: any) {
+    console.error('Gmail API error:', error);
+    
+    if (error.code === 401) {
+      return NextResponse.json(
+        { error: "Authentication failed. Please sign in again." },
+        { status: 401 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Failed to fetch emails. Please try again." },
       { status: 500 }
     );
   }

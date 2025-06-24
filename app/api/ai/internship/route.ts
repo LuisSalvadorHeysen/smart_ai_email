@@ -1,55 +1,49 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-interface InternshipData {
-  isInternshipEmail: boolean;
-  company?: string;
-  position?: string;
-  status?: 'Received' | 'Interviewing' | 'Rejected' | 'Offer';
-  date?: string;
-  notes?: string;
-}
-
 export async function POST(req: NextRequest) {
-  try {
-    const { text } = await req.json();
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+    try {
+        const { text } = await req.json();
 
-    // Classification prompt
-    const classifyPrompt = `Is this email related to an internship application? Respond only with "yes" or "no".\n\nEmail: ${text}`;
-    const classificationResult = await model.generateContent(classifyPrompt);
-    const isInternshipEmail = classificationResult.response.text().toLowerCase().trim() === 'yes';
+        if (!text) {
+            return NextResponse.json({ error: "Email body is required" }, { status: 400 });
+        }
 
-    if (!isInternshipEmail) {
-      return NextResponse.json({ isInternshipEmail: false });
+        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+
+        const prompt = `
+            Analyze the following email content to determine if it is an internship application, offer, or rejection.
+            If it is, extract the company name and position.
+            Respond in JSON format.
+            
+            If it is an internship-related email, the JSON should be:
+            { "isInternship": true, "details": { "company": "...", "position": "..." } }
+
+            If it is not an internship-related email, the JSON should be:
+            { "isInternship": false }
+
+            Email content:
+            """
+            ${text}
+            """
+        `;
+
+        const result = await model.generateContent(prompt);
+        const responseText = result.response.text();
+        
+        // Clean the response to ensure it's valid JSON
+        const cleanedJson = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+        const parsedResponse = JSON.parse(cleanedJson);
+
+        return NextResponse.json(parsedResponse);
+
+    } catch (error) {
+        console.error("[AI_INTERNSHIP_ERROR]", error);
+        return NextResponse.json(
+            { error: "Internal server error while processing internship check." },
+            { status: 500 }
+        );
     }
-
-    // Extraction prompt
-    const extractPrompt = `Extract internship application details:\n
-    1. Company name\n2. Position title\n3. Status (Received/Interviewing/Rejected/Offer)\n4. Status date (YYYY-MM-DD)\n5. Key details\n
-    Return JSON format: {
-      "company": "Company Name",
-      "position": "Position Title",
-      "status": "Status",
-      "date": "YYYY-MM-DD",
-      "notes": "Key details"
-    }\n\nEmail: ${text}`;
-
-    const extractionResult = await model.generateContent(extractPrompt);
-    const responseText = extractionResult.response.text();
-    const jsonMatch = responseText.match(/{(.|[\r\n])*?}/);
-    const data = jsonMatch ? JSON.parse(jsonMatch[0]) : {};
-
-    return NextResponse.json({
-      isInternshipEmail: true,
-      ...data
-    });
-
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message || "Failed to process internship update" },
-      { status: 500 }
-    );
-  }
 }
+

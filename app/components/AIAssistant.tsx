@@ -1,13 +1,13 @@
 'use client';
 import { useState } from 'react';
 import { Tabs, Textarea, Button, Group, Paper, Text, Loader, Stack, Box } from '@mantine/core';
-import { IconBulb, IconListCheck, IconCopy, IconCheck } from '@tabler/icons-react';
+import { IconBulb, IconListCheck, IconCopy, IconCheck, IconBriefcase } from '@tabler/icons-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import rehypeRaw from 'rehype-raw';
 
-export default function AIAssistant({ emailBody }: { emailBody: string }) {
+export default function AIAssistant({ emailId, emailBody, emailSubject }: { emailId: string, emailBody: string, emailSubject: string }) {
     const [activeTab, setActiveTab] = useState('tone');
     const [output, setOutput] = useState<string[]>([]);
     const [loading, setLoading] = useState(false);
@@ -16,6 +16,8 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
     const [aiReplies, setAiReplies] = useState<string[]>([]);
     const [repliesLoading, setRepliesLoading] = useState(false);
     const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+    const [internshipDetails, setInternshipDetails] = useState<any>(null);
+    const [internshipLoading, setInternshipLoading] = useState(false);
 
     const handleAIRequest = async (action: string, tone?: string) => {
         setLoading(true);
@@ -44,6 +46,65 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
             setOutput([]);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleCheckInternship = async () => {
+        setInternshipLoading(true);
+        setError(null);
+        setInternshipDetails(null);
+        try {
+            const res = await fetch('/api/ai/internship', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: emailBody }),
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.error || 'Failed to check for internship');
+            }
+
+            const data = await res.json();
+            if (data.isInternship) {
+                setInternshipDetails(data.details);
+            } else {
+                setInternshipDetails({ noInternship: true });
+            }
+        } catch (err: any) {
+            setError(err.message || "Failed to process internship check");
+        } finally {
+            setInternshipLoading(false);
+        }
+    };
+
+    const handleSaveInternship = async () => {
+        if (!internshipDetails) return;
+        
+        try {
+            const newApplication = {
+                company: internshipDetails.company,
+                position: internshipDetails.position,
+                status: 'Received',
+                date: new Date().toISOString(),
+                notes: `Source: Email subject - ${emailSubject}`,
+                emailId: emailId
+            };
+
+            const response = await fetch('/api/internships', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newApplication)
+            });
+
+            if (response.ok) {
+                alert('Internship saved to tracker!');
+            } else {
+                throw new Error('Failed to save internship');
+            }
+        } catch (error) {
+            console.error('Error saving internship:', error);
+            alert('Failed to save internship. Please try again.');
         }
     };
 
@@ -102,7 +163,7 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
         >
             <Tabs 
                 value={activeTab} 
-                onChange={setActiveTab}
+                onChange={(value) => setActiveTab(value || 'tone')}
                 styles={{
                     tab: {
                         '&[dataActive]': { // camelCase for React
@@ -113,8 +174,9 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                 }}
             >
                 <Tabs.List>
-                    <Tabs.Tab value="tone" icon={<IconBulb size={18} />}>Tone</Tabs.Tab>
-                    <Tabs.Tab value="actions" icon={<IconListCheck size={18} />}>Actions</Tabs.Tab>
+                    <Tabs.Tab value="tone" leftSection={<IconBulb size={18} />}>Tone</Tabs.Tab>
+                    <Tabs.Tab value="actions" leftSection={<IconListCheck size={18} />}>Actions</Tabs.Tab>
+                    <Tabs.Tab value="internship" leftSection={<IconBriefcase size={18} />}>Internship</Tabs.Tab>
                 </Tabs.List>
 
                 <Tabs.Panel value="tone" pt="xl">
@@ -139,7 +201,7 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                         }
                         }}
                     />
-                    <Group mt="xl" spacing="xs">
+                    <Group mt="xl" gap="xs">
                         {['formal', 'friendly', 'concise', 'assertive'].map((tone) => (
                             <Button
                                 key={tone}
@@ -164,7 +226,7 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                 </Tabs.Panel>
 
                 <Tabs.Panel value="actions" pt="xl">
-                    <Stack spacing="xl">
+                    <Stack gap="xl">
                         <Button 
                             onClick={() => handleAIRequest('actions')} 
                             loading={loading}
@@ -199,59 +261,62 @@ export default function AIAssistant({ emailBody }: { emailBody: string }) {
                             Generate 3 AI Replies
                         </Button>
 
+                        {repliesLoading && <Loader size="sm" />}
+
                         {aiReplies.length > 0 && (
-                            <Stack spacing="xs" mt="md">
-                                <Text size="sm" fw={500} c="dimmed">Suggested Replies:</Text>
-                                {aiReplies.map((reply, index) => (
-                                    <Paper 
-                                        key={index} 
-                                        p="sm" 
-                                        withBorder 
-                                        style={{ 
-                                            background: copiedIndex === index ? '#e6ffe6' : '#f8f9fa',
-                                            transition: 'background-color 0.3s ease',
-                                            borderRadius: 8,
-                                            borderColor: '#e8eaed'
-                                        }}
-                                    >
-                                        <Group position="apart" align="flex-start" spacing="xs">
-                                            <Box style={{ flex: 1 }}>
-                                                <ReactMarkdown
-                                                    remarkPlugins={[remarkGfm, remarkBreaks]}
-                                                    rehypePlugins={[rehypeRaw]}
-                                                    components={{
-                                                        strong: ({node, ...props}) => <strong style={{ color: '#222', fontWeight: 600 }} {...props} />,
-                                                        em: ({node, ...props}) => <em style={{ color: '#555' }} {...props} />,
-                                                        p: ({node, ...props}) => <p style={{ margin: 0, whiteSpace: 'pre-wrap', fontSize: '14px', lineHeight: 1.5 }} {...props} />,
-                                                    }}
-                                                >
-                                                    {reply}
-                                                </ReactMarkdown>
-                                            </Box>
-                                            <Button
-                                                variant="subtle"
+                            <Paper p="md" withBorder radius="md">
+                                <Stack>
+                                    {aiReplies.map((reply, index) => (
+                                        <Group key={index} justify="space-between">
+                                            <Text size="sm">{reply}</Text>
+                                            <Button 
                                                 size="xs"
-                                                leftSection={
-                                                    copiedIndex === index 
-                                                        ? <IconCheck size={12} /> 
-                                                        : <IconCopy size={12} />
-                                                }
-                                                color={copiedIndex === index ? 'green' : 'gray'}
+                                                variant="outline"
                                                 onClick={() => handleCopy(reply, index)}
-                                                styles={{
-                                                    root: {
-                                                        borderRadius: 6,
-                                                        padding: '4px 8px'
-                                                }
-                                                }}
                                             >
-                                                {copiedIndex === index ? 'Copied!' : 'Copy'}
+                                                {copiedIndex === index ? <IconCheck size={14} /> : <IconCopy size={14} />}
                                             </Button>
                                         </Group>
-                                    </Paper>
-                                ))}
-                            </Stack>
+                                    ))}
+                                </Stack>
+                            </Paper>
                         )}
+                    </Stack>
+                </Tabs.Panel>
+
+                <Tabs.Panel value="internship" pt="xl">
+                    <Stack gap="xl">
+                        <Button
+                            onClick={handleCheckInternship}
+                            loading={internshipLoading}
+                            variant="light"
+                            fullWidth
+                            leftSection={<IconBriefcase size={18} />}
+                        >
+                            Check for Internship Opportunity
+                        </Button>
+
+                        {internshipLoading && <Loader size="sm" />}
+
+                        {internshipDetails && !internshipDetails.noInternship && (
+                            <Paper p="lg" withBorder radius="md">
+                                <Stack>
+                                    <Text fw={500}>Internship Found!</Text>
+                                    <Text><strong>Company:</strong> {internshipDetails.company}</Text>
+                                    <Text><strong>Position:</strong> {internshipDetails.position}</Text>
+                                    <Button onClick={handleSaveInternship} size="sm">
+                                        Save to Tracker
+                                    </Button>
+                                </Stack>
+                            </Paper>
+                        )}
+
+                        {internshipDetails?.noInternship && (
+                            <Text ta="center" c="dimmed">
+                                No internship opportunity found in this email.
+                            </Text>
+                        )}
+
                     </Stack>
                 </Tabs.Panel>
             </Tabs>

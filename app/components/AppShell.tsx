@@ -18,7 +18,7 @@ export default function AppShellLayout({ children }: { children: React.ReactNode
       }}
     >
       <AppShell.Header style={{ background: 'rgba(255,255,255,0.95)', borderBottom: '1px solid #e8eaed', height: 70 }}>
-        <Group position="apart" align="center" style={{ height: '100%' }}>
+        <Group justify="space-between" align="center" style={{ height: '100%' }}>
           <Title 
             order={2} 
             style={{ 
@@ -37,21 +37,12 @@ export default function AppShellLayout({ children }: { children: React.ReactNode
           component={Link}
           href="/"
           label="Inbox"
-          icon={<IconInbox size={18} />}
           style={{ borderRadius: 8, fontWeight: 500, marginBottom: 4 }}
         />
         <NavLink
           component={Link}
           href="/internships"
           label="Internship Tracker"
-          icon={<IconBriefcase size={18} />}
-          style={{ borderRadius: 8, fontWeight: 500, marginBottom: 4 }}
-        />
-        <NavLink
-          component={Link}
-          href="/ai-assistant"
-          label="AI Assistant"
-          icon={<IconRobot size={18} />}
           style={{ borderRadius: 8, fontWeight: 500 }}
         />
       </AppShell.Navbar>

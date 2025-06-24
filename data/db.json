@@ -1,0 +1,1228 @@
+{
+  "emails": [
+    {
+      "id": "1979a4cea6e67ff5",
+      "subject": "Luxe Looks You’ll Love",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Mon, 23 Jun 2025 01:00:20 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:15.682Z",
+      "snippet": "Luxe Looks You’ll Love",
+      "aiResults": {
+        "category": "other",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "1979a402a1e26f27",
+      "subject": "🚨 Final Hours: $20 OFF Ends Tonight!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Mon, 23 Jun 2025 00:46:25 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:16.537Z",
+      "snippet": "🚨 Final Hours: $20 OFF Ends Tonight!",
+      "aiResults": {
+        "category": "other",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "1979a2b703f08e70",
+      "subject": "Luis Salvador, Ready to Take the Leap Into the Algo Trading",
+      "from": "Juhi Shah <juhi.s@quantinsti.com>",
+      "date": "Mon, 23 Jun 2025 00:23:46 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:17.240Z",
+      "snippet": "Luis Salvador, Ready to Take the Leap Into the Algo Trading",
+      "aiResults": {
+        "category": "other",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "19799a6a2e35799c",
+      "subject": "Re: 5527-5529 garbage and recycling",
+      "from": "Peter P <peter.perlinac@gmail.com>",
+      "date": "Sun, 22 Jun 2025 16:58:17 -0500",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:17.895Z",
+      "snippet": "Re: 5527-5529 garbage and recycling",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "19799825bee80a27",
+      "subject": "Top suggestions for Luis",
+      "from": "Netflix <info@members.netflix.com>",
+      "date": "Sun, 22 Jun 2025 21:19:05 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:18.836Z",
+      "snippet": "Top suggestions for Luis",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "19799771e73cfd85",
+      "subject": "Upcoming scheduled payment for Pandora",
+      "from": "Klarna <noreply-us@klarna.com>",
+      "date": "Sun, 22 Jun 2025 21:06:48 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:19.788Z",
+      "snippet": "Upcoming scheduled payment for Pandora",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "19799766957a51e0",
+      "subject": "Asjia Chapin commented on a payment between you and Asjia Chapin",
+      "from": "Venmo <venmo@venmo.com>",
+      "date": "Sun, 22 Jun 2025 21:06:03 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:20.414Z",
+      "snippet": "Asjia Chapin commented on a payment between you and Asjia Chapin",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "1979975db62fab86",
+      "subject": "You paid Asjia Chapin $0.10",
+      "from": "Venmo <venmo@venmo.com>",
+      "date": "Sun, 22 Jun 2025 21:05:26 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:21.196Z",
+      "snippet": "You paid Asjia Chapin $0.10",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "19799758a9e1fde7",
+      "subject": "Asjia Chapin is now your friend on Venmo",
+      "from": "Venmo <venmo@venmo.com>",
+      "date": "Sun, 22 Jun 2025 21:05:06 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:21.873Z",
+      "snippet": "Asjia Chapin is now your friend on Venmo",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "1979971e459a692a",
+      "subject": "Asjia Chapin paid you $65.00",
+      "from": "Venmo <venmo@venmo.com>",
+      "date": "Sun, 22 Jun 2025 21:01:07 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:22.613Z",
+      "snippet": "Asjia Chapin paid you $65.00",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "197997048349f451",
+      "subject": "New Appointment: Permanent Jewelry Bracelet- Gold Filled (Luis Heysen) on Friday, June 27, 2025 1:15pm with Laurel Lane Jewelry",
+      "from": "Laurel Lane Jewelry <scheduling@acuityscheduling-mail.com>",
+      "date": "Sun, 22 Jun 2025 20:59:20 +0000 (UTC)",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-06-23T02:12:06.444Z",
+      "snippet": "New Appointment: Permanent Jewelry Bracelet- Gold Filled (Luis Heysen) on Friday, June 27, 2025 1:15"
+    },
+    {
+      "id": "197997046cf1a0b2",
+      "subject": "Your appointment receipt",
+      "from": "Laurel Lane Jewelry <scheduling@acuityscheduling-mail.com>",
+      "date": "Sun, 22 Jun 2025 20:59:20 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:23.603Z",
+      "snippet": "Your appointment receipt",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "1979945443672040",
+      "subject": "💫 1 New Internship Posted Today",
+      "from": "SWE List <noreply@swelist.com>",
+      "date": "Sun, 22 Jun 2025 13:12:23 -0700 (PDT)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:25.070Z",
+      "snippet": "💫 1 New Internship Posted Today",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19799428e5ec633a",
+      "subject": "$1.99/Meal? Check dinner off your list ✅",
+      "from": "EveryPlate <hello@g.everyplate.com>",
+      "date": "Sun, 22 Jun 2025 14:09:23 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:26.334Z",
+      "snippet": "$1.99/Meal? Check dinner off your list ✅",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197993d144fc7a69",
+      "subject": "8 hours only: up to 30% OFF & FREE gift 🎁",
+      "from": "Carpe <hello@mycarpe.com>",
+      "date": "Sun, 22 Jun 2025 20:03:25 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:27.625Z",
+      "snippet": "8 hours only: up to 30% OFF & FREE gift 🎁",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979931a583ae5b0",
+      "subject": "Inside: your weekly Target Circle deals 🎉",
+      "from": "Target Circle <targetnews@em.target.com>",
+      "date": "Sun, 22 Jun 2025 13:50:50 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:28.743Z",
+      "snippet": "Inside: your weekly Target Circle deals 🎉",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197992eb925f6f59",
+      "subject": "✈ Your Chicago - Lima Flight Alert ",
+      "from": "CheapOair <CheapOair@mycheapoair.com>",
+      "date": "22 Jun 2025 19:39:51 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:29.602Z",
+      "snippet": "✈ Your Chicago - Lima Flight Alert ",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197992385f651088",
+      "subject": "This is your chance to get the best of Venmo",
+      "from": "Venmo <venmo@email.venmo.com>",
+      "date": "Sun, 22 Jun 2025 19:35:31 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:12:30.865Z",
+      "snippet": "This is your chance to get the best of Venmo",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19798cf2e26e0da8",
+      "subject": "SITEWIDE SALE - No Code Required",
+      "from": "Fabletics <fabletics@emails.fabletics.com>",
+      "date": "Sun, 22 Jun 2025 18:03:23 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:24.089Z",
+      "snippet": "SITEWIDE SALE - No Code Required",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979890bcbe9ec4a",
+      "subject": "Can You Name These Legendary Artists?",
+      "from": "Fender <email@e.fender.com>",
+      "date": "Sun, 22 Jun 2025 16:55:10 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:24.882Z",
+      "snippet": "Can You Name These Legendary Artists?",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197981b5c633da65",
+      "subject": "$50* sale fares for summer",
+      "from": "Spirit Airlines <deals@save.spirit-airlines.com>",
+      "date": "Sun, 22 Jun 2025 14:46:47 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:26.373Z",
+      "snippet": "$50* sale fares for summer",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19797be880065902",
+      "subject": "⏳ Weekend Sale: $20 OFF Ends Tonight!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Sun, 22 Jun 2025 13:05:34 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:27.176Z",
+      "snippet": "⏳ Weekend Sale: $20 OFF Ends Tonight!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19797a734270970e",
+      "subject": "Your New Weekly Ad is here.",
+      "from": "Target <targetnews@em.target.com>",
+      "date": "Sun, 22 Jun 2025 06:40:05 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:28.023Z",
+      "snippet": "Your New Weekly Ad is here.",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979760a46923389",
+      "subject": "7 días de mercado",
+      "from": "eToro <no-reply@connect.etoro.com>",
+      "date": "Sun, 22 Jun 2025 05:21:02 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:29.337Z",
+      "snippet": "7 días de mercado",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19796f0823336df5",
+      "subject": "Earn rewards everywhere with your Prime Visa",
+      "from": "Prime Visa <no_reply@mcmap.chase.com>",
+      "date": "Sun, 22 Jun 2025 03:20:33 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:15.752Z",
+      "snippet": "Earn rewards everywhere with your Prime Visa",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19795a6b81d87244",
+      "subject": "Re: u need to get ur attitude under control sassy pants",
+      "from": "Luis Salvador Heysen Taborda <lsalvador.ht@gmail.com>",
+      "date": "Sat, 21 Jun 2025 23:20:20 -0400",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:16.373Z",
+      "snippet": "Re: u need to get ur attitude under control sassy pants",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197956a9c60f2603",
+      "subject": "Congratulations! You’re eligible for 4 months for $0 🎵",
+      "from": "\"Amazon.com\" <store-news@amazon.com>",
+      "date": "Sun, 22 Jun 2025 02:14:41 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:17.147Z",
+      "snippet": "Congratulations! You’re eligible for 4 months for $0 🎵",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19794f1daed77e23",
+      "subject": "Re: u need to get ur attitude under control sassy pants",
+      "from": "Asjia Chapin <asjiajchapin@gmail.com>",
+      "date": "Sat, 21 Jun 2025 17:02:34 -0700",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:17.755Z",
+      "snippet": "Re: u need to get ur attitude under control sassy pants",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "negative",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19794e3333782bb9",
+      "subject": "Luis You Earned $20 OFF!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Sat, 21 Jun 2025 23:46:46 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:18.541Z",
+      "snippet": "Luis You Earned $20 OFF!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19794bc34b9c8df6",
+      "subject": "The Prospectuses for your recent investment",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Sat, 21 Jun 2025 23:04:08 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:20.208Z",
+      "snippet": "The Prospectuses for your recent investment",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19794bc2a9d0ba40",
+      "subject": "80% Off The Luis Collection",
+      "from": "Fabletics <fabletics@emails.fabletics.com>",
+      "date": "Sat, 21 Jun 2025 23:04:06 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:21.188Z",
+      "snippet": "80% Off The Luis Collection",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197948c5ee2d5044",
+      "subject": "LUIS HEYSEN, we’d appreciate your feedback!",
+      "from": "Citi <noreply@clientexperience.citi.com>",
+      "date": "Sat, 21 Jun 2025 16:11:56 -0600 (MDT)",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-06-23T02:12:10.028Z",
+      "snippet": "LUIS HEYSEN, we’d appreciate your feedback!"
+    },
+    {
+      "id": "1979466b83374fc1",
+      "subject": "Tienes S/30 de regalo 💥",
+      "from": "PedidosYa <newsletter@em.pedidosya.com>",
+      "date": "Sat, 21 Jun 2025 21:30:48 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:22.582Z",
+      "snippet": "Tienes S/30 de regalo 💥",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979451cd6227b50",
+      "subject": "Re: Thanks for applying to be a software engineer intern at ingaquispe",
+      "from": "Luis Salvador Heysen Taborda <lsalvador.ht@gmail.com>",
+      "date": "Sat, 21 Jun 2025 17:07:57 -0400",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:23.316Z",
+      "snippet": "Re: Thanks for applying to be a software engineer intern at ingaquispe",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "neutral",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "1979451c55b2c4bb",
+      "subject": "Engineer Intern at SGS",
+      "from": "SGS <notification@smartrecruiters.com>",
+      "date": "Sat, 21 Jun 2025 21:07:56 +0000",
+      "isInternship": true,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:24.042Z",
+      "snippet": "Engineer Intern at SGS",
+      "aiResults": {
+        "category": "internship",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197944ac0c93bf08",
+      "subject": "Sizzle & Save: Deals for You and Your Best Friend",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Sat, 21 Jun 2025 21:00:15 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:24.764Z",
+      "snippet": "Sizzle & Save: Deals for You and Your Best Friend",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197942ca2a95b568",
+      "subject": "Daily VOO investment deleted",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Sat, 21 Jun 2025 20:27:22 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:25.831Z",
+      "snippet": "Daily VOO investment deleted",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197942c85578902b",
+      "subject": "Daily VGT investment deleted",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Sat, 21 Jun 2025 20:27:14 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:27.079Z",
+      "snippet": "Daily VGT investment deleted",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197941f187475b6e",
+      "subject": "💫 4 New Internships Posted Today",
+      "from": "SWE List <noreply@swelist.com>",
+      "date": "Sat, 21 Jun 2025 13:12:35 -0700 (PDT)",
+      "isInternship": true,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:27.764Z",
+      "snippet": "💫 4 New Internships Posted Today",
+      "aiResults": {
+        "category": "internship",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197941c4eefb8f4f",
+      "subject": "Luis, we just added a TV show you might like",
+      "from": "Netflix <info@members.netflix.com>",
+      "date": "Sat, 21 Jun 2025 20:09:32 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:28.619Z",
+      "snippet": "Luis, we just added a TV show you might like",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197941bc52cf3b05",
+      "subject": "Psst. Get $1.99/Meal",
+      "from": "EveryPlate <hello@g.everyplate.com>",
+      "date": "Sat, 21 Jun 2025 14:08:55 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:16.386Z",
+      "snippet": "Psst. Get $1.99/Meal",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19793ec653d23845",
+      "subject": "Track your purchases and more in the app",
+      "from": "Klarna <noreply@hello.klarna.com>",
+      "date": "Sat, 21 Jun 2025 19:17:10 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:17.739Z",
+      "snippet": "Track your purchases and more in the app",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19793a17214ea055",
+      "subject": "This is your chance to get the best of Venmo",
+      "from": "Venmo <venmo@email.venmo.com>",
+      "date": "Sat, 21 Jun 2025 17:55:19 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:19.093Z",
+      "snippet": "This is your chance to get the best of Venmo",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197937620cbaabd2",
+      "subject": "¿Te gustaría adquirir la mejor tecnología para tu negocio? 🤝",
+      "from": "Samsung <no-reply@m21.email.samsung.com>",
+      "date": "Sat, 21 Jun 2025 10:07:57 -0700",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:30.626Z",
+      "snippet": "¿Te gustaría adquirir la mejor tecnología para tu negocio? 🤝",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197936a567cec2e0",
+      "subject": "Sparkle Finish | Player II Stratocaster & Telecaster",
+      "from": "Fender <email@e.fender.com>",
+      "date": "Sat, 21 Jun 2025 16:55:07 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:13:31.312Z",
+      "snippet": "Sparkle Finish | Player II Stratocaster & Telecaster",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979362c2b8e5b27",
+      "subject": "Luis, this could be your vibe",
+      "from": "Pinterest <recommendations@discover.pinterest.com>",
+      "date": "Sat, 21 Jun 2025 16:46:52 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:19.925Z",
+      "snippet": "Luis, this could be your vibe",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19793590938b6427",
+      "subject": "TODAY // Up Ya Archives: Nia Archives",
+      "from": "RADIUS <hello@mail.radius-chicago.com>",
+      "date": "Sat, 21 Jun 2025 16:36:10 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:21.136Z",
+      "snippet": "TODAY // Up Ya Archives: Nia Archives",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979326c3785b657",
+      "subject": "EP168: AI Vs Machine Learning Vs Deep Learning Vs Generative AI",
+      "from": "ByteByteGo <bytebytego@substack.com>",
+      "date": "Sat, 21 Jun 2025 15:30:16 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:22.078Z",
+      "snippet": "EP168: AI Vs Machine Learning Vs Deep Learning Vs Generative AI",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "19792cacf724022a",
+      "subject": "Luis Salvador, Build Your Quant Trading Career with Quantra",
+      "from": "Juhi Shah <juhi.s@quantinsti.com>",
+      "date": "Sat, 21 Jun 2025 14:00:51 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:07.567Z",
+      "snippet": "Luis Salvador, Build Your Quant Trading Career with Quantra",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979297937e3a5b7",
+      "subject": "YAYAYAYAYAYA WEEKEND CLEARANCE❗",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Sat, 21 Jun 2025 13:04:56 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-23T02:14:22.808Z",
+      "snippet": "YAYAYAYAYAYA WEEKEND CLEARANCE❗",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979f374c991d1bd",
+      "subject": "Asjia just messaged you",
+      "from": "Asjia Chapin via LinkedIn <messaging-digest-noreply@linkedin.com>",
+      "date": "Mon, 23 Jun 2025 23:54:48 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:36.489Z",
+      "snippet": "Asjia just messaged you",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979f30c5c914bb9",
+      "subject": "Find the nightlife you’ve been waiting for",
+      "from": "Eventbrite <marketing@plans.eventbrite.com>",
+      "date": "Mon, 23 Jun 2025 23:47:42 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:37.932Z",
+      "snippet": "Find the nightlife you’ve been waiting for",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979eec992bfce1e",
+      "subject": "Tu cupón de S/30 espera ⏰",
+      "from": "PedidosYa <newsletter@em.pedidosya.com>",
+      "date": "Mon, 23 Jun 2025 22:33:14 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:39.315Z",
+      "snippet": "Tu cupón de S/30 espera ⏰",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979ed73b079ebe6",
+      "subject": "Save 15% on Quest tick tests ✅",
+      "from": "Quest <promo@e.questdiagnostics.com>",
+      "date": "Mon, 23 Jun 2025 16:09:53 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:40.432Z",
+      "snippet": "Save 15% on Quest tick tests ✅",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979ecf74aee6e2f",
+      "subject": "Final Hours ⏳ Up to 20% Off Select Web Exclusives",
+      "from": "Fender <email@e.fender.com>",
+      "date": "Mon, 23 Jun 2025 22:01:24 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:41.235Z",
+      "snippet": "Final Hours ⏳ Up to 20% Off Select Web Exclusives",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979ec7fa0d6ce2c",
+      "subject": "Netflix tonight?",
+      "from": "Netflix <info@members.netflix.com>",
+      "date": "Mon, 23 Jun 2025 21:53:14 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:42.171Z",
+      "snippet": "Netflix tonight?",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979e9782d9a4eab",
+      "subject": "Welcome Summer with Coldwater Creek",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Mon, 23 Jun 2025 21:00:17 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:43.071Z",
+      "snippet": "Welcome Summer with Coldwater Creek",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979e80afabafedb",
+      "subject": "Luis Heysen, you're welcome to check your pre-approval status again—it may have changed",
+      "from": "Capital One <donotreply@cardoffer.capitalone.com>",
+      "date": "Mon, 23 Jun 2025 13:29:26 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:43.958Z",
+      "snippet": "Luis Heysen, you're welcome to check your pre-approval status again—it may have changed",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979e6be60e186c9",
+      "subject": "💫 3 New Internships Posted Today",
+      "from": "SWE List <noreply@swelist.com>",
+      "date": "Mon, 23 Jun 2025 13:12:41 -0700 (PDT)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:44.806Z",
+      "snippet": "💫 3 New Internships Posted Today",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979e5b535d1cd21",
+      "subject": "✈ Round Trip Deals! Fly from $105.89",
+      "from": "CheapOair <CheapOair@mycheapoair.com>",
+      "date": "23 Jun 2025 19:54:02 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:45.602Z",
+      "snippet": "✈ Round Trip Deals! Fly from $105.89",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979e5174acb1b3c",
+      "subject": "75% OFF Travel Sprays – Inventory Blowout Starts Now!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Mon, 23 Jun 2025 19:43:47 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:46.351Z",
+      "snippet": "75% OFF Travel Sprays – Inventory Blowout Starts Now!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979e4aa6c7acbcd",
+      "subject": "All bottoms on sale now!",
+      "from": "Fabletics <fabletics@emails.fabletics.com>",
+      "date": "Mon, 23 Jun 2025 19:36:20 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:47.201Z",
+      "snippet": "All bottoms on sale now!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979db741df3ee5c",
+      "subject": "Final Call! | Up to 20% Off Select Instruments Ends Tonight",
+      "from": "Fender <email@e.fender.com>",
+      "date": "Mon, 23 Jun 2025 16:55:18 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:47.885Z",
+      "snippet": "Final Call! | Up to 20% Off Select Instruments Ends Tonight",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d784ae6eebd7",
+      "subject": "You deserve more, we built this to get you there.",
+      "from": "\"Adrian | JS Mastery\" <contact@jsmastery.pro>",
+      "date": "Mon, 23 Jun 2025 15:46:35 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:48.579Z",
+      "snippet": "You deserve more, we built this to get you there.",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d7464f822c3c",
+      "subject": "Object Oriented Design Interview Book is here — now available on Amazon!",
+      "from": "ByteByteGo <bytebytego@substack.com>",
+      "date": "Mon, 23 Jun 2025 15:31:08 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:49.269Z",
+      "snippet": "Object Oriented Design Interview Book is here — now available on Amazon!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d6a46a5adeb5",
+      "subject": "ACM TechNews, Monday, June 23, 2025",
+      "from": "ACM TechNews <technews-editor@acm.org>",
+      "date": "Mon, 23 Jun 2025 11:19:49 -0400 (EDT)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:11.947Z",
+      "snippet": "ACM TechNews, Monday, June 23, 2025",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d5be6cec9923",
+      "subject": "¡Lady Gaga más cerca que nunca! 🪩",
+      "from": "Novedades Scotiabank <novedades@scotiabank.com.pe>",
+      "date": "Mon, 23 Jun 2025 15:15:34 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:12.916Z",
+      "snippet": "¡Lady Gaga más cerca que nunca! 🪩",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d5003fa6ea16",
+      "subject": "OOO Mode: Activated 🌴",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Mon, 23 Jun 2025 15:02:34 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:13.788Z",
+      "snippet": "OOO Mode: Activated 🌴",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d3c1e1b41186",
+      "subject": "Edita y refina desde cualquier parte",
+      "from": "Adobe Photoshop <mail@mail.adobe.com>",
+      "date": "Mon, 23 Jun 2025 06:41:10 -0700",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:15.651Z",
+      "snippet": "Edita y refina desde cualquier parte",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d1d9dd3797d9",
+      "subject": "1 new notification since 8:06 am (Jun 23, 2025)",
+      "from": "\"CyberCircle (Skool)\" <noreply@skool.com>",
+      "date": "Mon, 23 Jun 2025 14:07:31 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:14.933Z",
+      "snippet": "1 new notification since 8:06 am (Jun 23, 2025)",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d04e34bd570a",
+      "subject": "Your order has been executed",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Mon, 23 Jun 2025 13:40:31 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:52.532Z",
+      "snippet": "Your order has been executed",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979d004ea0aea55",
+      "subject": "Your order has been executed",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Mon, 23 Jun 2025 13:35:31 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:16.900Z",
+      "snippet": "Your order has been executed",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979ce1fd0e7b499",
+      "subject": "Using AI for work? Don’t miss out on this exceptional tool!",
+      "from": "QuillBot <updates@mail.quillbot.com>",
+      "date": "Mon, 23 Jun 2025 13:02:23 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:17.649Z",
+      "snippet": "Using AI for work? Don’t miss out on this exceptional tool!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979cd141aa32f72",
+      "subject": "🌀 FREE Gift for You! 🌀 Buy 2, Get 1 Free!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Mon, 23 Jun 2025 12:39:07 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:18.474Z",
+      "snippet": "🌀 FREE Gift for You! 🌀 Buy 2, Get 1 Free!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979c86db010bdbb",
+      "subject": "Recommended: Google Data Analytics",
+      "from": "Coursera <Coursera@m.learn.coursera.org>",
+      "date": "Mon, 23 Jun 2025 11:22:52 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:19.978Z",
+      "snippet": "Recommended: Google Data Analytics",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979c64215807e6c",
+      "subject": "Tesla Robotaxi launch 🚕, Apple eyes Perplexity 💰, tech's tiny team era 📈",
+      "from": "TLDR <dan@tldrnewsletter.com>",
+      "date": "Mon, 23 Jun 2025 10:44:56 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:37:54.951Z",
+      "snippet": "Tesla Robotaxi launch 🚕, Apple eyes Perplexity 💰, tech's tiny team era 📈",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979c4422e4ae715",
+      "subject": "I want to connect",
+      "from": "Rosalyn Jia <invitations@linkedin.com>",
+      "date": "Mon, 23 Jun 2025 10:09:59 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T00:44:20.756Z",
+      "snippet": "I want to connect",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979f76a25ff9c65",
+      "subject": "Have you earned your $75, Luis?",
+      "from": "Discover Card <discover@card-e.em.discover.com>",
+      "date": "Tue, 24 Jun 2025 01:03:57 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T01:05:24.073Z",
+      "snippet": "Have you earned your $75, Luis?",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979f8e4cc69a2ac",
+      "subject": "We’re updating our Terms of Service and Privacy Policy",
+      "from": "Quizlet <account@account.quizlet.com>",
+      "date": "Tue, 24 Jun 2025 01:09:24 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T01:35:15.887Z",
+      "snippet": "We’re updating our Terms of Service and Privacy Policy",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979f8afd77086e0",
+      "subject": "Learning Spotlight: Get the Latest in AI Skills",
+      "from": "LinkedIn <messages-noreply@linkedin.com>",
+      "date": "Tue, 24 Jun 2025 01:26:15 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T01:35:14.648Z",
+      "snippet": "Learning Spotlight: Get the Latest in AI Skills",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979f965150ee9e5",
+      "subject": "75% OFF ENDS TONIGHT — INVENTORY BLOWOUT",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Tue, 24 Jun 2025 01:38:37 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T01:39:48.227Z",
+      "snippet": "75% OFF ENDS TONIGHT — INVENTORY BLOWOUT",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "1979fb2b6c0c1ebc",
+      "subject": "Luis, start a conversation with your new connection, Mariano",
+      "from": "Mariano Paz Soldan via LinkedIn <invitations@linkedin.com>",
+      "date": "Tue, 24 Jun 2025 02:09:38 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-06-24T02:13:03.701Z",
+      "snippet": "Luis, start a conversation with your new connection, Mariano",
+      "aiResults": {
+        "category": "other",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    }
+  ],
+  "internships": [],
+  "systemState": {
+    "lastFetchTime": "2025-06-24T02:22:43.371Z"
+  }
+}
