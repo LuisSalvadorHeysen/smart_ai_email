@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function POST(req: NextRequest, { params }: { params: { feature: string[] } }) {
-    const { feature } = params;
+export async function POST(
+    req: NextRequest, 
+    { params }: { params: Promise<{ feature: string[] }> }
+) {
+    const { feature } = await params;
     const action = feature[0];
     const body = await req.json();
     const { text, draft, tone } = body;
