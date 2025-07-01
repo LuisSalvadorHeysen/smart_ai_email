@@ -48,16 +48,16 @@ export async function POST(req: NextRequest) {
 
       const message = response.data;
       // Robust extraction: try text/plain, then text/html (strip tags), then fallback
-      function extractTextFromPayload(payload) {
+      function extractTextFromPayload(payload: any) {
         if (!payload) return '';
         // 1. Try text/plain part
         if (payload.parts) {
-          const textPart = payload.parts.find(p => p.mimeType === 'text/plain' && p.body?.data);
+          const textPart = payload.parts.find((p: any) => p.mimeType === 'text/plain' && p.body?.data);
           if (textPart) {
             return Buffer.from(textPart.body.data, 'base64').toString('utf-8');
           }
           // 2. Try text/html part
-          const htmlPart = payload.parts.find(p => p.mimeType === 'text/html' && p.body?.data);
+          const htmlPart = payload.parts.find((p: any) => p.mimeType === 'text/html' && p.body?.data);
           if (htmlPart) {
             const html = Buffer.from(htmlPart.body.data, 'base64').toString('utf-8');
             return html.replace(/<[^>]*>/g, ' ');
@@ -145,14 +145,16 @@ Only return valid JSON, no other text.`;
         updatedAt: new Date().toISOString()
       };
 
-      await dbManager.saveInternshipApplication(internshipData);
-      await dbManager.incrementInternshipCount();
+      await dbManager.saveInternship(internshipData);
       
       // Update email snapshot to mark as internship
-      const emailSnapshot = await dbManager.getEmailSnapshot(emailId);
+      const emailSnapshot = await dbManager.getEmailWithAIResults(emailId);
       if (emailSnapshot) {
         emailSnapshot.isInternship = true;
-        await dbManager.saveEmailSnapshot(emailSnapshot);
+        await dbManager.saveEmailSnapshot({
+          ...emailSnapshot,
+          lastUpdated: new Date().toISOString()
+        });
       }
       
       console.log(`[EXTRACT_INTERNSHIP] Saved internship to database`);
