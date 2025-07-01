@@ -9,8 +9,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email ID is required" }, { status: 400 });
     }
 
-    // Update email in database
-    await dbManager.markEmailAsProcessed(id);
+    // Get the email and update its processed status
+    const email = await dbManager.getEmailWithAIResults(id);
+    if (email) {
+      // Update the email's processed status and other fields
+      await dbManager.saveAIResults(id, {
+        ...email.aiResults,
+        category: email.aiResults?.category || 'other',
+        sentiment: email.aiResults?.sentiment || 'neutral',
+        confidence: email.aiResults?.confidence || 'medium'
+      });
+    }
     
     // If it's an internship email, we might want to update the isInternship flag
     // This would require adding a method to update email snapshots
