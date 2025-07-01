@@ -43,14 +43,52 @@ export async function POST(req: NextRequest) {
       const response = await gmail.users.messages.get({ userId: 'me', id: emailId, format: 'full' });
       
       const message = response.data;
-      if (message.payload?.parts) {
-        const textPart = message.payload.parts.find(p => p.mimeType === 'text/plain');
-        if (textPart && textPart.body?.data) {
-          contentToProcess = Buffer.from(textPart.body.data, 'base64').toString('utf-8');
+      console.log(`[CLASSIFY] Message payload structure:`, {
+        hasPayload: !!message.payload,
+        mimeType: message.payload?.mimeType,
+        hasParts: !!message.payload?.parts,
+        partsCount: message.payload?.parts?.length || 0,
+        hasBody: !!message.payload?.body,
+        bodyDataLength: message.payload?.body?.data?.length || 0
+      });
+      
+      // Robust extraction: try text/plain, then text/html (strip tags), then fallback
+      function extractTextFromPayload(payload: any) {
+        if (!payload) {
+          console.log(`[CLASSIFY] No payload found`);
+          return '';
         }
-      } else if (message.payload?.body?.data) {
-        contentToProcess = Buffer.from(message.payload.body.data, 'base64').toString('utf-8');
+        // 1. Try text/plain part
+        if (payload.parts) {
+          console.log(`[CLASSIFY] Processing ${payload.parts.length} parts`);
+          const textPart = payload.parts.find((p: any) => p.mimeType === 'text/plain' && p.body?.data);
+          if (textPart) {
+            console.log(`[CLASSIFY] Found text/plain part, data length: ${textPart.body.data.length}`);
+            return Buffer.from(textPart.body.data, 'base64').toString('utf-8');
+          }
+          // 2. Try text/html part
+          const htmlPart = payload.parts.find((p: any) => p.mimeType === 'text/html' && p.body?.data);
+          if (htmlPart) {
+            console.log(`[CLASSIFY] Found text/html part, data length: ${htmlPart.body.data.length}`);
+            const html = Buffer.from(htmlPart.body.data, 'base64').toString('utf-8');
+            return html.replace(/<[^>]*>/g, ' ');
+          }
+          console.log(`[CLASSIFY] No text/plain or text/html parts found`);
+        }
+        // 3. Try main body
+        if (payload.body?.data) {
+          console.log(`[CLASSIFY] Using main body, mimeType: ${payload.mimeType}, data length: ${payload.body.data.length}`);
+          if (payload.mimeType === 'text/html') {
+            const html = Buffer.from(payload.body.data, 'base64').toString('utf-8');
+            return html.replace(/<[^>]*>/g, ' ');
+          } else {
+            return Buffer.from(payload.body.data, 'base64').toString('utf-8');
+          }
+        }
+        console.log(`[CLASSIFY] No content found in payload`);
+        return '';
       }
+      contentToProcess = extractTextFromPayload(message.payload);
     } catch (error) {
       console.error(`[CLASSIFY] Error fetching email from Gmail API:`, error);
       return NextResponse.json({ error: "Failed to fetch email content from Gmail" }, { status: 500 });

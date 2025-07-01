@@ -47,22 +47,34 @@ export async function POST(req: NextRequest) {
       });
 
       const message = response.data;
-      let textBody = '';
-      let htmlBody = '';
-
-      if (message.payload?.parts) {
-        for (const part of message.payload.parts) {
-          if (part.mimeType === 'text/plain' && part.body?.data) {
-            textBody = Buffer.from(part.body.data, 'base64').toString();
-          } else if (part.mimeType === 'text/html' && part.body?.data) {
-            htmlBody = Buffer.from(part.body.data, 'base64').toString();
+      // Robust extraction: try text/plain, then text/html (strip tags), then fallback
+      function extractTextFromPayload(payload) {
+        if (!payload) return '';
+        // 1. Try text/plain part
+        if (payload.parts) {
+          const textPart = payload.parts.find(p => p.mimeType === 'text/plain' && p.body?.data);
+          if (textPart) {
+            return Buffer.from(textPart.body.data, 'base64').toString('utf-8');
+          }
+          // 2. Try text/html part
+          const htmlPart = payload.parts.find(p => p.mimeType === 'text/html' && p.body?.data);
+          if (htmlPart) {
+            const html = Buffer.from(htmlPart.body.data, 'base64').toString('utf-8');
+            return html.replace(/<[^>]*>/g, ' ');
           }
         }
-      } else if (message.payload?.body?.data) {
-        textBody = Buffer.from(message.payload.body.data, 'base64').toString();
+        // 3. Try main body
+        if (payload.body?.data) {
+          if (payload.mimeType === 'text/html') {
+            const html = Buffer.from(payload.body.data, 'base64').toString('utf-8');
+            return html.replace(/<[^>]*>/g, ' ');
+          } else {
+            return Buffer.from(payload.body.data, 'base64').toString('utf-8');
+          }
+        }
+        return '';
       }
-
-      content = textBody || htmlBody.replace(/<[^>]*>/g, '') || '';
+      content = extractTextFromPayload(message.payload);
       console.log(`[EXTRACT_INTERNSHIP] Retrieved content length: ${content.length}`);
     } else {
       return NextResponse.json({ error: "No email content or ID provided" }, { status: 400 });

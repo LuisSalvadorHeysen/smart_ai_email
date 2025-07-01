@@ -1219,10 +1219,725 @@
         "sentiment": "neutral",
         "confidence": "high"
       }
+    },
+    {
+      "id": "197c3f374f84310a",
+      "subject": "Luis Heysen, did 'Intex Air Mattress Bed' meet your expectations? Review it on Amazon",
+      "from": "\"Amazon.com Reviews\" <customer-reviews-messages@amazon.com>",
+      "date": "Tue, 1 Jul 2025 03:06:41 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:51.534Z",
+      "snippet": "Luis Heysen, did 'Intex Air Mattress Bed' meet your expectations? Review it on Amazon",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c39022069f5e6",
+      "subject": "From Code to Capital: Jose's Transition from Software Engineering to Algo Trading",
+      "from": "Quantra <contact@quantinsti.com>",
+      "date": "Tue, 01 Jul 2025 01:18:10 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:52.791Z",
+      "snippet": "From Code to Capital: Jose's Transition from Software Engineering to Algo Trading",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c380760c3d715",
+      "subject": "How to Glow When You’re Always On the Go",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Tue, 01 Jul 2025 01:01:04 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:53.621Z",
+      "snippet": "How to Glow When You’re Always On the Go",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c375d295912ec",
+      "subject": "❗BOGO 50% Off Ends Tonight",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Tue, 01 Jul 2025 00:49:27 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:54.443Z",
+      "snippet": "❗BOGO 50% Off Ends Tonight",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c325ef4b6b8d3",
+      "subject": "Sr. Internal Audit Manager role at Flagstar Bank: you would be a great fit!",
+      "from": "Glassdoor Jobs <noreply@glassdoor.com>",
+      "date": "Mon, 30 Jun 2025 23:22:12 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:56.126Z",
+      "snippet": "Sr. Internal Audit Manager role at Flagstar Bank: you would be a great fit!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c31586ec32ecc",
+      "subject": "Natalie Smith, Nick Cheshier, and Hannah Foth Have Updates for You, Luis Heysen",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "date": "Mon, 30 Jun 2025 23:04:17 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:56.937Z",
+      "snippet": "Natalie Smith, Nick Cheshier, and Hannah Foth Have Updates for You, Luis Heysen",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c31350c98dae2",
+      "subject": "Your experience matters to us.",
+      "from": "Georgia Aquarium <tickets@email.georgiaaquarium.org>",
+      "date": "Mon, 30 Jun 2025 23:01:51 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:57.674Z",
+      "snippet": "Your experience matters to us.",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c2a495634dcc7",
+      "subject": "Shhh... It’s a Secret Sale",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Mon, 30 Jun 2025 21:00:54 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:58.428Z",
+      "snippet": "Shhh... It’s a Secret Sale",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c28db29c5bcc5",
+      "subject": "⏰✈ Book By Midnight! Fly from $72.48",
+      "from": "CheapOair <CheapOair@mycheapoair.com>",
+      "date": "30 Jun 2025 19:33:43 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:01.113Z",
+      "snippet": "⏰✈ Book By Midnight! Fly from $72.48",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c27a238440ee2",
+      "subject": "Luis Heysen, you're welcome to check your pre-approval status again—it may have changed",
+      "from": "Capital One <donotreply@cardoffer.capitalone.com>",
+      "date": "Mon, 30 Jun 2025 14:13:13 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:39:59.144Z",
+      "snippet": "Luis Heysen, you're welcome to check your pre-approval status again—it may have changed",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c257b93dd3de0",
+      "subject": "Reveal your deal on activewear today",
+      "from": "Fabletics <fabletics@emails.fabletics.com>",
+      "date": "Mon, 30 Jun 2025 19:36:57 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:00.083Z",
+      "snippet": "Reveal your deal on activewear today",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c218c6ce04f79",
+      "subject": "🏆 Free to Play: USATF Fantasy Pick’em Pool — Win up to $500 in Prizes!",
+      "from": "USATF <membership@usatf.org>",
+      "date": "Mon, 30 Jun 2025 18:28:12 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:01.775Z",
+      "snippet": "🏆 Free to Play: USATF Fantasy Pick’em Pool — Win up to $500 in Prizes!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c200f9b7aa97b",
+      "subject": "Get Ready for 4th of July Savings!",
+      "from": "Suzushii Clothing <support@suzushiiclothing.com>",
+      "date": "Mon, 30 Jun 2025 18:02:12 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:02.402Z",
+      "snippet": "Get Ready for 4th of July Savings!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c1d9927021b1b",
+      "subject": "¡Descubre nuestros fondos mutuos en app y web!",
+      "from": "Novedades Scotiabank <novedades@scotiabank.com.pe>",
+      "date": "Mon, 30 Jun 2025 17:19:10 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:03.280Z",
+      "snippet": "¡Descubre nuestros fondos mutuos en app y web!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c1cca91ffc271",
+      "subject": "Discover the NEW Fender Studio App",
+      "from": "Fender <email@e.fender.com>",
+      "date": "Mon, 30 Jun 2025 17:05:01 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:03.970Z",
+      "snippet": "Discover the NEW Fender Studio App",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c1a789a39da76",
+      "subject": "We’ve updated our Robinhood Crypto Customer Agreement",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Mon, 30 Jun 2025 16:24:30 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:05.101Z",
+      "snippet": "We’ve updated our Robinhood Crypto Customer Agreement",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c194ebb0f3442",
+      "subject": "The Monthly Edge AI Newsletter",
+      "from": "Edge Impulse <insightsnewsletter@edgeimpulse.com>",
+      "date": "Mon, 30 Jun 2025 09:04:09 -0700",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:24.951Z",
+      "snippet": "The Monthly Edge AI Newsletter",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c183f099d87da",
+      "subject": "ACM TechNews, Monday, June 30, 2025",
+      "from": "ACM TechNews <technews-editor@acm.org>",
+      "date": "Mon, 30 Jun 2025 11:34:08 -0400 (EDT)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:40:06.307Z",
+      "snippet": "ACM TechNews, Monday, June 30, 2025",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c16ac162d925f",
+      "subject": "Streaming now: To Catch a Token",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Mon, 30 Jun 2025 15:18:06 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:26.433Z",
+      "snippet": "Streaming now: To Catch a Token",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c15cf0f72627c",
+      "subject": "Out of Office, On the Move",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Mon, 30 Jun 2025 15:03:01 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:27.527Z",
+      "snippet": "Out of Office, On the Move",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c151b912c608c",
+      "subject": "Your Scheduled Payment",
+      "from": "Discover Card <discover@services.discover.com>",
+      "date": "Mon, 30 Jun 2025 14:50:47 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:28.251Z",
+      "snippet": "Your Scheduled Payment",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c13e38d085c3c",
+      "subject": "Explora miles de ideas con el plan de Todas las Aplicaciones",
+      "from": "Adobe Creative Cloud <mail@mail.adobe.com>",
+      "date": "Mon, 30 Jun 2025 06:38:30 -0700",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:32.161Z",
+      "snippet": "Explora miles de ideas con el plan de Todas las Aplicaciones",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c1310641d0686",
+      "subject": "¡Gana hasta S/5,000 con CVV Dinámico!",
+      "from": "Novedades Scotiabank <novedades@scotiabank.com.pe>",
+      "date": "Mon, 30 Jun 2025 14:15:04 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:29.182Z",
+      "snippet": "¡Gana hasta S/5,000 con CVV Dinámico!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c12ee4d760c8d",
+      "subject": "Progressive scheduled payment reminder",
+      "from": "Progressive <customerservice@e.progressive.com>",
+      "date": "Mon, 30 Jun 2025 08:09:10 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:30.098Z",
+      "snippet": "Progressive scheduled payment reminder",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c122eab12c04f",
+      "subject": "Luis Salvador, Do you want to upgrade your trading skills with advanced algo trading strategies?",
+      "from": "Anurag Sharma <anurag.s@quantinsti.com>",
+      "date": "Mon, 30 Jun 2025 13:59:38 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:31.485Z",
+      "snippet": "Luis Salvador, Do you want to upgrade your trading skills with advanced algo trading strategies?",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c0da030706bbf",
+      "subject": "EVERY. SECOND. SPRAY. SLASHED 50% TODAY!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Mon, 30 Jun 2025 12:40:02 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:32.940Z",
+      "snippet": "EVERY. SECOND. SPRAY. SLASHED 50% TODAY!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c0c8a5e5f7a85",
+      "subject": "Two NEW! salad drops! 🥗",
+      "from": "Panera Bread <panera@m1.panerabread.com>",
+      "date": "Mon, 30 Jun 2025 12:21:03 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:34.260Z",
+      "snippet": "Two NEW! salad drops! 🥗",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c0a266f60993e",
+      "subject": "Recommended: Introduction to Calculus",
+      "from": "Coursera <Coursera@m.learn.coursera.org>",
+      "date": "Mon, 30 Jun 2025 11:39:17 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:36.041Z",
+      "snippet": "Recommended: Introduction to Calculus",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c07cec2a385de",
+      "subject": "Zuckerberg's list 📝, Tesla's driverless delivery 🚗, synthetic human genome 🧬",
+      "from": "TLDR <dan@tldrnewsletter.com>",
+      "date": "Mon, 30 Jun 2025 10:58:21 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:36.928Z",
+      "snippet": "Zuckerberg's list 📝, Tesla's driverless delivery 🚗, synthetic human genome 🧬",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197c0481bb7beaf6",
+      "subject": "Errichto just went live on Twitch",
+      "from": "Twitch <no-reply@twitch.tv>",
+      "date": "Mon, 30 Jun 2025 10:00:40 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:38.466Z",
+      "snippet": "Errichto just went live on Twitch",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197be98a10ab57a3",
+      "subject": "I want to connect",
+      "from": "Daryl Echeazu <invitations@linkedin.com>",
+      "date": "Mon, 30 Jun 2025 02:09:21 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:39.233Z",
+      "snippet": "I want to connect",
+      "aiResults": {
+        "category": "personal",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197be1dd59692a33",
+      "subject": "OOPS, WE OVERSTOCKED 🤷📦 JULY 4th SURPLUS DEALS!",
+      "from": "MicroPerfumes <help@e.microperfumes.com>",
+      "date": "Sun, 29 Jun 2025 23:55:15 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:27.699Z",
+      "snippet": "OOPS, WE OVERSTOCKED 🤷📦 JULY 4th SURPLUS DEALS!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bdeea40588a7f",
+      "subject": "TODAY ONLY: No Membership Required​",
+      "from": "Fabletics <fabletics@emails.fabletics.com>",
+      "date": "Sun, 29 Jun 2025 23:03:42 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:40.690Z",
+      "snippet": "TODAY ONLY: No Membership Required​",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bdddaa0e05564",
+      "subject": "Inside: your weekly Target Circle deals 🎉",
+      "from": "Target Circle <targetnews@em.target.com>",
+      "date": "Sun, 29 Jun 2025 16:45:02 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:28.819Z",
+      "snippet": "Inside: your weekly Target Circle deals 🎉",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bdcbaf3411fa0",
+      "subject": "Prime Day is coming soon, but savings start early",
+      "from": "\"Amazon.com\" <store-news@amazon.com>",
+      "date": "Sun, 29 Jun 2025 22:25:31 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:29.701Z",
+      "snippet": "Prime Day is coming soon, but savings start early",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd93d8df773c2",
+      "subject": "Luis, earn unlimited 2% back at restaurants with Prime Visa",
+      "from": "Prime Visa <no_reply@mcmap.chase.com>",
+      "date": "Sun, 29 Jun 2025 15:24:31 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:30.403Z",
+      "snippet": "Luis, earn unlimited 2% back at restaurants with Prime Visa",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd7f8b595e5f6",
+      "subject": "Your pet called—said thanks",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Sun, 29 Jun 2025 21:02:20 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:41:42.566Z",
+      "snippet": "Your pet called—said thanks",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd7db07916d28",
+      "subject": "Coffee Lovers Rejoice – Brew More, Spend Less!",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Sun, 29 Jun 2025 21:00:19 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:31.287Z",
+      "snippet": "Coffee Lovers Rejoice – Brew More, Spend Less!",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "neutral",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd641da3ac00e",
+      "subject": "It’s almost showtime",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Sun, 29 Jun 2025 20:32:23 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:32.761Z",
+      "snippet": "It’s almost showtime",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd456b6b77c9f",
+      "subject": "Swanky steakhouse The Alston makes its debut",
+      "from": "OpenTable <OpenTable@mgs.opentable.com>",
+      "date": "Sun, 29 Jun 2025 15:58:50 -0400 (EDT)",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:46.776Z",
+      "snippet": "Swanky steakhouse The Alston makes its debut"
+    },
+    {
+      "id": "197bd1256c531d1f",
+      "subject": "Don't miss 45% OFF",
+      "from": "Carpe <hello@mycarpe.com>",
+      "date": "Sun, 29 Jun 2025 19:03:03 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:34.426Z",
+      "snippet": "Don't miss 45% OFF",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd120a0489858",
+      "subject": "✈ Your Chicago - Lima Flight Alert ",
+      "from": "CheapOair <CheapOair@mycheapoair.com>",
+      "date": "29 Jun 2025 19:02:17 +0000",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:42:35.338Z",
+      "snippet": "✈ Your Chicago - Lima Flight Alert ",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bd10d22f694db",
+      "subject": "Built for your 9-to-5 escape plan",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Sun, 29 Jun 2025 19:01:24 +0000 (UTC)",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:47.388Z",
+      "snippet": "Built for your 9-to-5 escape plan"
+    },
+    {
+      "id": "197bcb66eea73df8",
+      "subject": "Your withdrawal from your Individual account has completed",
+      "from": "Robinhood <noreply@robinhood.com>",
+      "date": "Sun, 29 Jun 2025 17:22:40 +0000 (UTC)",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T04:05:55.270Z",
+      "snippet": "Your withdrawal from your Individual account has completed",
+      "aiResults": {
+        "category": "work",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bc9d0a163aca3",
+      "subject": "Olympic Pearl | Player II Modified Series",
+      "from": "Fender <email@e.fender.com>",
+      "date": "Sun, 29 Jun 2025 16:54:55 +0000",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:47.790Z",
+      "snippet": "Olympic Pearl | Player II Modified Series"
+    },
+    {
+      "id": "197bc8cc152bb693",
+      "subject": "Your plasma donation can mean life, liberty, and the pursuit of happiness for patients in need.",
+      "from": "BioLife Plasma Services <BioLife.Donor.Response@email-biolifeplasma.com>",
+      "date": "Sun, 29 Jun 2025 10:37:07 -0600",
+      "isInternship": false,
+      "processed": true,
+      "lastUpdated": "2025-07-01T03:49:49.095Z",
+      "snippet": "Your plasma donation can mean life, liberty, and the pursuit of happiness for patients in need.",
+      "aiResults": {
+        "category": "promotional",
+        "sentiment": "positive",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "197bc6042e9dfd3d",
+      "subject": "How do you choose the right career path in quantitative trading?",
+      "from": "Abhishek Sheopori <abhishek.sh@quantinsti.com>",
+      "date": "Sun, 29 Jun 2025 15:48:33 +0000 (UTC)",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:48.193Z",
+      "snippet": "How do you choose the right career path in quantitative trading?"
+    },
+    {
+      "id": "197bc39361edea6d",
+      "subject": "Dreaming of Japan?",
+      "from": "Karma <hello@vf.karmanow.com>",
+      "date": "Sun, 29 Jun 2025 15:05:54 +0000 (UTC)",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:48.373Z",
+      "snippet": "Dreaming of Japan?"
+    },
+    {
+      "id": "197bc2994ae35d80",
+      "subject": "You have PTO, we have $54* fares",
+      "from": "Spirit Airlines <deals@save.spirit-airlines.com>",
+      "date": "Sun, 29 Jun 2025 14:48:41 +0000",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:48.560Z",
+      "snippet": "You have PTO, we have $54* fares"
+    },
+    {
+      "id": "197bc0e7ff54302f",
+      "subject": "Citi's tools can help defend your account against scams and fraud",
+      "from": "Citibank <Citibank.Message@info15.citi.com>",
+      "date": "Sun, 29 Jun 2025 08:19:15 -0600",
+      "isInternship": false,
+      "processed": false,
+      "lastUpdated": "2025-07-01T03:39:48.748Z",
+      "snippet": "Citi's tools can help defend your account against scams and fraud"
     }
   ],
   "internships": [],
   "systemState": {
-    "lastFetchTime": "2025-06-24T02:22:43.371Z"
+    "lastFetchTime": "2025-07-01T04:05:57.723Z"
   }
 }

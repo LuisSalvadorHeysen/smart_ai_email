@@ -82,10 +82,48 @@ export async function POST(
             .map(line => line.replace(/^[-*•]\s*/, '').trim());
         }
 
-return NextResponse.json({ output });
+        return NextResponse.json({ output });
 
-    } catch (error) {
+    } catch (error: any) {
         console.error(`[AI_ERROR] ${action}`, error);
+        
+        // Handle rate limit errors specifically
+        if (error.message && error.message.includes('429')) {
+            console.log(`[AI_ERROR] Rate limit exceeded for ${action}, providing fallback response`);
+            
+            // Provide fallback responses based on the action
+            let fallbackOutput = [];
+            switch(action) {
+                case 'actions':
+                    fallbackOutput = [
+                        "Review the email content carefully",
+                        "Consider the sender's request",
+                        "Respond within a reasonable timeframe"
+                    ];
+                    break;
+                case 'replies':
+                    fallbackOutput = [
+                        "Thank you for your email. I'll review and get back to you soon.",
+                        "I appreciate you reaching out. Let me look into this.",
+                        "Thanks for the information. I'll follow up shortly."
+                    ];
+                    break;
+                case 'sentiment':
+                    fallbackOutput = ["neutral"];
+                    break;
+                case 'rewrite':
+                    fallbackOutput = ["I apologize, but I'm currently experiencing high demand. Please try again later or compose your reply manually."];
+                    break;
+                default:
+                    fallbackOutput = ["Service temporarily unavailable due to high demand. Please try again later."];
+            }
+            
+            return NextResponse.json({ 
+                output: fallbackOutput,
+                warning: "AI service is currently at capacity. This is a fallback response."
+            });
+        }
+        
         return NextResponse.json(
             { error: "Failed to process request. Please try again." },
             { status: 500 }
