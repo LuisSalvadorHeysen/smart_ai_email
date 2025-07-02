@@ -1,4 +1,6 @@
-# Smart AI Email Assistant
+# Smart AI Email
+
+[![Demo](https://img.shields.io/badge/Live%20Demo-smart--ai--email.vercel.app-blue?style=for-the-badge)](https://smart-ai-email.vercel.app/)
 
 A modern, AI-powered email management application that helps users organize, analyze, and respond to emails efficiently. Built with Next.js, Google Gemini AI, and Gmail API integration.
 
