@@ -1,5 +1,5 @@
 'use client';
-import { AppShell, Container, Paper, Title, Group, Box, NavLink } from '@mantine/core';
+import { AppShell, Container, Paper, Title, Group, Box, NavLink, Text, Stack } from '@mantine/core';
 import { IconInbox, IconBriefcase, IconRobot } from '@tabler/icons-react';
 import Link from 'next/link';
 
@@ -13,6 +13,7 @@ export default function AppShellLayout({ children }: { children: React.ReactNode
         collapsed: { mobile: true }
       }}
       header={{ height: 70 }}
+      footer={{ height: 60 }}
       styles={{
         main: { background: '#f8fafc' }
       }}
@@ -51,6 +52,20 @@ export default function AppShellLayout({ children }: { children: React.ReactNode
           {children}
         </Container>
       </AppShell.Main>
+      <AppShell.Footer p="md" style={{ background: 'rgba(255,255,255,0.95)', borderTop: '1px solid #e8eaed' }}>
+        <Group justify="center" gap="xl">
+          <Text size="sm" c="dimmed">
+            <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>
+              Privacy Policy
+            </Link>
+          </Text>
+          <Text size="sm" c="dimmed">
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>
+              Terms of Service
+            </Link>
+          </Text>
+        </Group>
+      </AppShell.Footer>
     </AppShell>
   );
 }
