@@ -67,7 +67,7 @@ export default function SummaryButton() {
 
             {summary && (
                 <Paper p="md" mt="md" withBorder>
-                    <Group position="apart" align="center" style={{ cursor: 'pointer' }} onClick={() => setCollapsed(c => !c)}>
+                    <Group justify="space-between" align="center" style={{ cursor: 'pointer' }} onClick={() => setCollapsed(c => !c)}>
                         <Text fw={500} mb="sm">📩 AI Summary:</Text>
                         <Button
                             variant="subtle"

@@ -21,9 +21,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     <>
       <ColorSchemeScript />
       <MantineProvider
-        theme={{ colorScheme }}
-        withGlobalStyles
-        withNormalizeCSS
+        defaultColorScheme={colorScheme}
+        theme={{}}
       >
         <SessionProvider>
           {/* Pass toggle and scheme to children via context or props if needed */}

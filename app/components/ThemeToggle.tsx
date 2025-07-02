@@ -16,7 +16,7 @@ export default function ThemeToggle() {
   if (!mounted) {
     // Return a placeholder that matches both server and client initial render
     return (
-      <Group position="right" my="md">
+      <Group justify="flex-end" my="md">
         <Tooltip label="Loading theme toggle...">
           <ActionIcon
             size="lg"
@@ -34,7 +34,7 @@ export default function ThemeToggle() {
   const dark = colorScheme === 'dark';
 
   return (
-    <Group position="right" my="md">
+    <Group justify="flex-end" my="md">
       <Tooltip label={dark ? "Switch to light mode" : "Switch to dark mode"}>
         <ActionIcon
           onClick={() => toggleColorScheme()}

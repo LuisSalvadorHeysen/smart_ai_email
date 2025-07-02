@@ -33,7 +33,7 @@ export default function InternshipTracker() {
 
   return (
     <div style={{ padding: '24px', maxWidth: 1200, margin: '0 auto' }}>
-      <Group mb="xl" position="apart">
+      <Group mb="xl" justify="space-between">
         <Text size="xl" fw={700}>
           <IconBriefcase size={20} style={{ marginRight: 8 }} />
           Internship Applications
@@ -48,7 +48,7 @@ export default function InternshipTracker() {
 
       <Grid>
         {applications.map((app, index) => (
-          <Grid.Col key={index} span={12} md={6} lg={4}>
+          <Grid.Col key={index} span={12} span-md={6} span-lg={4}>
             <Paper 
               p="lg" 
               withBorder 
@@ -58,7 +58,7 @@ export default function InternshipTracker() {
                 borderLeft: `4px solid var(${statusColors[app.status]})`
               }}
             >
-              <Group position="apart" mb="xs">
+              <Group justify="space-between" mb="xs">
                 <div>
                   <Text fw={600}>{app.company}</Text>
                   <Text size="sm" c="dimmed">{app.position}</Text>
