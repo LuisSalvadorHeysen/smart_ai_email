@@ -6,10 +6,6 @@ A modern, AI-powered email management application that helps users organize, ana
 
 <!-- Deployment ready - ESLint removed for successful build -->
 
-## 🚀 Live Demo
-
-[Deploy to Vercel](https://vercel.com) - *Coming Soon*
-
 ## ✨ Features
 
 ### 📧 Smart Email Management
